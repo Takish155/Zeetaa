@@ -1,0 +1,42 @@
+{
+  "Header": {
+    "header": "Zeetaa",
+    "home": "Home",
+    "login": "Sign In",
+    "register": "Sign Up"
+  },
+  "Index": {
+    "header": "Zeetaa",
+    "description": "Join Zeetaa today! Connect with like-minded individuals, discover new friendships, and create unforgettable experiences together!",
+    "email": "Email",
+    "password": "Password"
+  },
+  "Login": {
+    "header": "Sign In",
+    "description": "Sign in to your Zeetaa account today!",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign In"
+  },
+  "Register": {
+    "header": "Sign Up",
+    "description": "Create your Zeetaa account today!",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "register": "Register your account",
+    "firstNameError": "First name must be more than 2 letters",
+    "firstNameMaxError": "First name must be less than 30 letters",
+    "lastNameError": "Last name must be more than 2 letters",
+    "lastNameMaxError": "Last name must be less than 30 letters",
+    "usernameError": "Username must be more than 4 letters",
+    "usernameMaxError": "Username must be less than 15 letters",
+    "emailError": "Invalid email address",
+    "passwordError": "Password must be more than 6 letters",
+    "passwordMaxError": "Password must be less than 30 letters",
+    "confirmPasswordError": "Passwords do not match"
+  }
+}

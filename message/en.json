@@ -1,0 +1,118 @@
+{
+  "Header": {
+    "header": "Zeetaa",
+    "home": "Home",
+    "notifications": "Notifications",
+    "friends": "Friends",
+    "login": "Sign In",
+    "register": "Sign Up",
+    "profile": "Profile",
+    "signOut": "Sign Out"
+  },
+  "Index": {
+    "header": "Zeetaa",
+    "description": "Join Zeetaa today! Connect with like-minded individuals, discover new friendships, and create unforgettable experiences together!",
+    "email": "Email",
+    "password": "Password"
+  },
+  "Login": {
+    "header": "Sign In",
+    "description": "Sign in to your Zeetaa account today!",
+    "username": "Username",
+    "password": "Password",
+    "signIn": "Sign In",
+    "authenticationError": "Invalid username or password"
+  },
+  "Register": {
+    "header": "Sign Up",
+    "description": "Create your Zeetaa account today!",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "register": "Register your account",
+    "firstNameError": "First name must be more than 2 letters",
+    "firstNameMaxError": "First name must be less than 30 letters",
+    "lastNameError": "Last name must be more than 2 letters",
+    "lastNameMaxError": "Last name must be less than 30 letters",
+    "usernameError": "Username must be more than 4 letters",
+    "usernameMaxError": "Username must be less than 15 letters",
+    "emailError": "Invalid email address",
+    "passwordError": "Password must be more than 6 letters",
+    "passwordMaxError": "Password must be less than 30 letters",
+    "confirmPasswordError": "Passwords do not match"
+  },
+  "RegistrationAction": {
+    "safeDataError": "Error with parsing data registration.",
+    "usernameExistError": "Username already exists, please try another one.",
+    "emailExistError": "Email already exists, please try another one.",
+    "registrationSuccess": "Registration successful!"
+  },
+  "HomePage": {
+    "header": "Home",
+    "postHeading": "What's on your mind?",
+    "postButton": "Post",
+    "feedSectionHeading": "Feeds",
+    "authorHeading": "Author",
+    "postedDateHeading": "Posted Date",
+    "betweenTimeText": "at",
+    "likeText": "likes",
+    "likeButton": "Like",
+    "deleteButton": "Delete",
+    "noSessionError": "You must be logged in to view this page.",
+    "invalidFeedError": "Invalid feed.",
+    "emptyMessageError": "Post cannot be empty.",
+    "longMessageError": "Post cannot be longer than 1000 characters.",
+    "userNotFoundError": "User not found.",
+    "postSuccess": "Post successful!",
+    "loginToLikeText": "Login to like this post"
+  },
+  "ProfilePage": {
+    "joinedIn": "Joined Zeetaa on",
+    "feedHeading": "Feeds",
+    "addFriend": "Send Friend Request",
+    "removeFriend": "Remove Friend",
+    "cancelFriendRequest": "Cancel Friend Request",
+    "acceptFriendRequest": "Accept Friend Request",
+    "rejectFriendRequest": "Reject Friend Request",
+    "noSessionButton": "Sign In to interact with this user",
+    "friendRequestAlreadySentError": "Friend request already sent, please wait for the user to accept your request.",
+    "friendRequestSentSuccess": "Friend request sent!",
+    "acceptedFriendRequestSuccess": "Friend request accepted!"
+  },
+  "NotificationPage": {
+    "header": "Notifications",
+    "friendRequestHeading": "Friend Requests",
+    "someoneSentYouFriendRequestText": "sent you a friend request!",
+    "acceptButton": "Accept",
+    "rejectButton": "Reject",
+    "viewProfileText": "View Profile",
+    "noSessionError": "You must be logged in to view this page.",
+    "invalidFriendRequestError": "Invalid friend request.",
+    "friendRequestAcceptedSuccess": "'s friend request has been accepted!",
+    "friendRequestRejectedSuccess": "'s friend request has been rejected!"
+  },
+  "FriendsPage": {
+    "header": "Friends",
+    "noSessionError": "You must be logged in to view this page.",
+    "noFriendsText": "You have no friends.",
+    "friendHeading": "Friends",
+    "friendSinceText": "Friends since",
+    "visitProfile": "Visit Profile",
+    "message": "Message",
+    "removeFriend": "Remove Friend",
+    "friendRemovedSuccess": "Friend removed!"
+  },
+  "MessagesPage": {
+    "header": "Messages",
+    "friendHeading": "Friends",
+    "sendButtonText": "Send"
+  },
+  "SearchUserPage": {
+    "header": "Search User",
+    "viewProfile": "View Profile",
+    "message": "Message"
+  }
+}
