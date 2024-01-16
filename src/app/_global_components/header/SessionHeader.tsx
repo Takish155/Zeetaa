@@ -24,6 +24,9 @@ const SessionHeader = async ({ locale }: { locale: string }) => {
           {t("profile")}
         </Link>
       </li>
+      <li>
+        <Link href={`/${locale}/settings`}>{t("settings")}</Link>
+      </li>
       <SignOutButton />
     </>
   );

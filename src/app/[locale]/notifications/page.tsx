@@ -1,47 +1,49 @@
 import SignInForm from "@/app/_component/auth/SignInForm";
-import showFriendRequestAction from "@/app/api/actions/user/friendActions/showFriendRequestAction";
+import showFriendRequestAction from "@/app/api/actions/user/friendActions/showNotificationAction";
 import { getServerSession } from "next-auth";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import React from "react";
-import FriendRequestActionButtons from "./FriendRequestActionButtons";
+import FriendRequestSection from "./FriendRequestSection";
+import MessageSection from "./MessageSection";
 
-const page = async () => {
+const page = async ({ params }: { params: { locale: string } }) => {
   const session = await getServerSession();
   const t = await getTranslations("NotificationPage");
-  const data = await showFriendRequestAction();
-  const locale = await getLocale();
+  const data = await showFriendRequestAction("all");
 
   if (!session) {
     return <SignInForm />;
   }
 
   return (
-    <main>
+    <>
       <h2>{t("header")}</h2>
       <article>
-        <h2>{t("friendRequestHeading")}</h2>
-        <section>
-          {data.map((friendRequest) => {
+        {data?.map((notification) => {
+          if (notification.type === "friendrequest") {
             return (
-              <div key={friendRequest.id}>
-                <p>
-                  {friendRequest.senderUsername}{" "}
-                  {t("someoneSentYouFriendRequestText")}
-                </p>
-                <FriendRequestActionButtons
-                  acceptText={t("acceptButton")}
-                  rejectText={t("rejectButton")}
-                  viewProfileText={t("viewProfileText")}
-                  friendRequestId={friendRequest.id}
-                  locale={locale}
-                  username={friendRequest.senderUsername}
-                />
-              </div>
+              <FriendRequestSection
+                locale={params.locale}
+                notificationId={notification.id}
+                senderUsername={notification.senderUsername!}
+                key={notification.id}
+              />
             );
-          })}
-        </section>
+          }
+          return (
+            <MessageSection
+              content={"content" in notification ? notification.content : ""}
+              date={notification.createdAt}
+              locale={params.locale}
+              messageBack={t("messageBack")}
+              notificationId={notification.id}
+              senderUsername={notification.senderUsername!}
+              key={notification.id}
+            />
+          );
+        })}
       </article>
-    </main>
+    </>
   );
 };
 

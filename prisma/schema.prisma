@@ -50,6 +50,7 @@ model User {
   createdAt              DateTime        @default(now())
   updatedAt              DateTime        @updatedAt
   likedPosts             String[]
+  bio                    String?
   accounts               Account[]
   sessions               Session[]
   posts                  PersonPost[]

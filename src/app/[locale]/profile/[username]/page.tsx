@@ -1,5 +1,5 @@
 import showProfileAction from "@/app/api/actions/showProfileAction";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import React from "react";
 import PostDataSection from "../../../_component/feedDisplayer/PostDataSection";
 import { getServerSession } from "next-auth";
@@ -9,10 +9,13 @@ import Link from "next/link";
 import CancelSentFriendRequestActionButton from "./buttons/CancelSentFriendRequestActionButton";
 import IncomingFriendRequestAction from "./buttons/IncomingFriendRequestAction";
 
-const page = async ({ params }: { params: { username: string } }) => {
+const page = async ({
+  params,
+}: {
+  params: { username: string; locale: string };
+}) => {
   const profileData = await showProfileAction(params.username);
   const session = await getServerSession();
-  const locale = await getLocale();
   const t = await getTranslations("ProfilePage");
 
   return (
@@ -23,30 +26,59 @@ const page = async ({ params }: { params: { username: string } }) => {
           {t("joinedIn")}{" "}
           {profileData?.userInfo?.createdAt.toLocaleDateString()}
         </p>
+        <p>{profileData.userInfo?.bio}</p>
         {session?.user?.email !== profileData.userInfo?.email &&
           (profileData.relationship === "friend" ? (
-            <RemoveActionButton
-              removeText={t("removeFriend")}
-              friendId={profileData.friendId!}
-            />
+            <>
+              <RemoveActionButton
+                removeText={t("removeFriend")}
+                friendId={profileData.friendId!}
+              />
+              <button>
+                <Link href={`/${params.locale}/messages/${params.username}`}>
+                  {t("message")}
+                </Link>
+              </button>
+            </>
           ) : profileData.relationship === "stranger" ? (
-            <FriendActionButton
-              textButton={t("addFriend")}
-              userId={profileData.userInfo?.id!}
-            />
+            <>
+              <FriendActionButton
+                textButton={t("addFriend")}
+                userId={profileData.userInfo?.id!}
+              />
+              <button>
+                <Link href={`/${params.locale}/messages/${params.username}`}>
+                  {t("message")}
+                </Link>
+              </button>
+            </>
           ) : profileData.relationship === "alreadySentFriendRequest" ? (
-            <CancelSentFriendRequestActionButton
-              cancelButtonText={t("cancelFriendRequest")}
-              friendRequestId={profileData.friendRequestId!}
-            />
+            <>
+              <CancelSentFriendRequestActionButton
+                cancelButtonText={t("cancelFriendRequest")}
+                friendRequestId={profileData.friendRequestId!}
+              />
+              <button>
+                <Link href={`/${params.locale}/messages/${params.username}`}>
+                  {t("message")}
+                </Link>
+              </button>
+            </>
           ) : profileData.relationship === "receivedFriendRequest" ? (
-            <IncomingFriendRequestAction
-              friendRequestId={profileData.friendRequestId!}
-              acceptText={t("acceptFriendRequest")}
-              rejectText={t("rejectFriendRequest")}
-            />
+            <>
+              <IncomingFriendRequestAction
+                friendRequestId={profileData.friendRequestId!}
+                acceptText={t("acceptFriendRequest")}
+                rejectText={t("rejectFriendRequest")}
+              />
+              <button>
+                <Link href={`/${params.locale}/messages/${params.username}`}>
+                  {t("message")}
+                </Link>
+              </button>
+            </>
           ) : (
-            <Link href={`/${locale}/auth/signin`}>
+            <Link href={`/${params.locale}/auth/signin`}>
               <button>{t("noSessionButton")}</button>
             </Link>
           ))}

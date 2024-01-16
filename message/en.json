@@ -7,6 +7,7 @@
     "login": "Sign In",
     "register": "Sign Up",
     "profile": "Profile",
+    "settings": "Settings",
     "signOut": "Sign Out"
   },
   "Index": {
@@ -74,6 +75,7 @@
     "feedHeading": "Feeds",
     "addFriend": "Send Friend Request",
     "removeFriend": "Remove Friend",
+    "message": "Message",
     "cancelFriendRequest": "Cancel Friend Request",
     "acceptFriendRequest": "Accept Friend Request",
     "rejectFriendRequest": "Reject Friend Request",
@@ -88,11 +90,15 @@
     "someoneSentYouFriendRequestText": "sent you a friend request!",
     "acceptButton": "Accept",
     "rejectButton": "Reject",
+    "messageBack": "Message Back",
     "viewProfileText": "View Profile",
     "noSessionError": "You must be logged in to view this page.",
     "invalidFriendRequestError": "Invalid friend request.",
     "friendRequestAcceptedSuccess": "'s friend request has been accepted!",
-    "friendRequestRejectedSuccess": "'s friend request has been rejected!"
+    "friendRequestRejectedSuccess": "'s friend request has been rejected!",
+    "allNotifications": "All Notifications",
+    "friendRequestNotifications": "Friend Requests",
+    "messageNotifications": "Messages"
   },
   "FriendsPage": {
     "header": "Friends",
@@ -114,5 +120,24 @@
     "header": "Search User",
     "viewProfile": "View Profile",
     "message": "Message"
+  },
+  "SettingsPage": {
+    "header": "Settings",
+    "account": "Account",
+    "security": "Security",
+    "personalDetails": "Personal Details",
+    "signOutHeading": "Sign Out",
+    "bioHeading": "Bio",
+    "saveButton": "Save",
+    "bioDescription": "Tell us about yourself for people to know you better!",
+    "signOutDescription": "You will be signed out of your account. You can sign back in anytime.",
+    "deleteAccountHeading": "Delete Account",
+    "deleteAccountDescription": "Deleting your account will permanently remove all of your data from Zeetaa. This action cannot be undone.",
+    "confirmAccountDeletion": "Are you sure you want to delete your account? This action cannot be undone. Please enter your password to confirm.",
+    "invalidPasswordError": "Invalid password, please try again.",
+    "successMessage": "Account deleted successfully!, you will be signed out in 5 seconds.",
+    "invalidPassword": "Invalid password, please try again.",
+    "bioUpdatedSuccess": "Bio updated successfully!",
+    "sameBioError": "Bio is the same as before, No change were made."
   }
 }
