@@ -17,7 +17,7 @@ export default function ErrorPage() {
         `/${params.locale}/auth/signin?errorMessage=${t("authenticationError")}`
       );
     }
-  }, [router, errorMessage]);
+  }, [router, errorMessage, params.locale, t]);
 
   return <div>Loading...</div>;
 }

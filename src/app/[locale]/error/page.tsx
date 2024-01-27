@@ -1,10 +1,11 @@
 import React from "react";
 import ErrorPage from "./Error";
-import { NextIntlClientProvider, useMessages } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { pick } from "lodash";
+import { getMessages } from "next-intl/server";
 
-const page = () => {
-  const message = useMessages();
+const page = async () => {
+  const message = await getMessages();
   return (
     <div>
       <NextIntlClientProvider messages={pick(message, "Login")}>

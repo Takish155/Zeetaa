@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ReactNode } from "react";
-import Header from "../_global_components/header/Header";
-import { NextIntlClientProvider } from "next-intl";
-import AuthProvider from "../_context/AuthProvider";
-import QueryProvider from "../_context/QueryProvider";
+import QueryProvider from "@/_context/QueryProvider";
+import AuthProvider from "@/_context/AuthProvider";
+import Header from "@/_global_components/header/Header";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "700"] });
 

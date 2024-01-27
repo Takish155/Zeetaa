@@ -1,15 +1,18 @@
-import {
-  NextIntlClientProvider,
-  useMessages,
-  useTranslations,
-} from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import React from "react";
-import SignInForm from "../_component/auth/SignInForm";
 import { pick } from "lodash";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import SignInForm from "@/_component/auth/SignInForm";
 
-const page = () => {
-  const t = useTranslations("Index");
-  const message = useMessages();
+const page = async () => {
+  const session = await getServerSession();
+  const locale = await getLocale();
+  if (session) redirect(`/${locale}/home`);
+
+  const t = await getTranslations("Index");
+  const message = await getMessages();
 
   return (
     <main>

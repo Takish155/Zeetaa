@@ -114,8 +114,10 @@ a {
   max-width: 190px;
 }
 
-.input {
+input {
   width: 100%;
+  max-width: 250px;
+  margin-bottom: 0.5rem;
   height: 30px;
   line-height: 28px;
   padding: 0 1rem;
@@ -128,11 +130,11 @@ a {
   transition: 0.3s ease;
 }
 
-.input::placeholder {
+input::placeholder {
   color: #9e9ea7;
 }
 
-.input:focus,
+input:focus,
 input:hover {
   outline: none;
   border-color: rgba(234, 76, 137, 0.4);

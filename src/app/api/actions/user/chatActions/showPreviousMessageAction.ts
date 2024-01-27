@@ -1,0 +1,27 @@
+"use server";
+
+import { getServerSession } from "next-auth";
+import { signOut } from "next-auth/react";
+import { getLocale } from "next-intl/server";
+import { redirect } from "next/navigation";
+
+const showPreviousMessage = async () => {
+  const session = await getServerSession();
+  const locale = await getLocale();
+  try {
+    if (!session) redirect(`/${locale}/auth/signin`);
+    const user = await prisma?.user.findUnique({
+      where: {
+        email: session.user?.email!,
+      },
+    });
+    if (!user) throw new Error("User not found");
+  } catch (err) {
+    if (err instanceof Error) {
+      return { message: err.message, status: "error" };
+    }
+    return { message: "Something went wrong", status: "error" };
+  }
+};
+
+export default showPreviousMessage;

@@ -3,29 +3,32 @@
 import { getServerSession } from "next-auth";
 
 const getChatChannelAction = async (username: string) => {
-  const session = await getServerSession();
-  if (!session) throw new Error("Not authenticated");
+  try {
+    const session = await getServerSession();
+    if (!session) throw new Error("Not authenticated");
 
-  const user = await prisma?.user.findUnique({
-    where: {
-      email: session.user?.email!,
-    },
-  });
-  if (!user) throw new Error("User not found");
+    const userAndReceiver = await prisma?.user.findUnique({
+      where: {
+        email: session.user?.email!,
+      },
+    });
+    if (!userAndReceiver) throw new Error("User not found");
 
-  const receiver = await prisma?.user.findUnique({
-    where: {
-      username,
-    },
-  });
-  if (!receiver) throw new Error("Receiver not found");
+    const sender = await prisma?.user.findUnique({
+      where: {
+        username,
+      },
+    });
+    if (!sender) throw new Error("sender not found");
 
-  const channelName =
-    user.id < receiver.id
-      ? `${user.id}-${receiver.id}`
-      : `${receiver.id}-${user.id}`;
-
-  return channelName;
+    const channelName = `${userAndReceiver.id}-${sender.id}`;
+    return channelName;
+  } catch (err) {
+    if (err instanceof Error) {
+      return { message: err.message, status: "error" };
+    }
+    return { message: "Something went wrong", status: "error" };
+  }
 };
 
 export default getChatChannelAction;

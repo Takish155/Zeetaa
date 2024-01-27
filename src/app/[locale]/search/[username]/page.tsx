@@ -14,23 +14,27 @@ const page = async ({
   return (
     <main>
       <article>
-        {data?.map((user) => (
-          <section key={user.id}>
-            <h2>{user.username}</h2>
-            <button>
-              <Link href={`/${params.locale}/profile/${user.username}/`}>
-                {t("viewProfile")}
-              </Link>
-            </button>
-            {user.relationship !== "user" && (
+        {Array.isArray(data) ? (
+          data?.map((user) => (
+            <section key={user.id}>
+              <h2>{user.username}</h2>
               <button>
-                <Link href={`/${params.locale}/messages/${user.username}/`}>
-                  {t("message")}
+                <Link href={`/${params.locale}/profile/${user.username}/`}>
+                  {t("viewProfile")}
                 </Link>
               </button>
-            )}
-          </section>
-        ))}
+              {user.relationship !== "user" && (
+                <button>
+                  <Link href={`/${params.locale}/messages/${user.username}/`}>
+                    {t("message")}
+                  </Link>
+                </button>
+              )}
+            </section>
+          ))
+        ) : (
+          <p>{data?.message}</p>
+        )}
       </article>
     </main>
   );
