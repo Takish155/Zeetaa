@@ -3,12 +3,12 @@
 import { getServerSession } from "next-auth";
 import { getLocale, getTranslations } from "next-intl/server";
 import bcrypt from "bcrypt";
-import { revalidatePath } from "next/cache";
 import {
   ChangeEmailSchemaType,
   changeEmailSchema,
 } from "@/_schema/settingsSchema/changeEmailSchema";
 import { redirect } from "next/navigation";
+import prisma from "@/../prisma/prisma";
 
 const changeEmailAction = async (data: ChangeEmailSchemaType) => {
   try {

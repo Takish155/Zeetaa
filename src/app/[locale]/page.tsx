@@ -23,7 +23,7 @@ const page = async () => {
       <section>
         <h2>Sign-in to your account</h2>
         <NextIntlClientProvider messages={pick(message, "Login")}>
-          <SignInForm />
+          <SignInForm locale={locale} />
         </NextIntlClientProvider>
       </section>
     </main>

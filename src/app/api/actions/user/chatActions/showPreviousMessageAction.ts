@@ -1,9 +1,9 @@
 "use server";
 
 import { getServerSession } from "next-auth";
-import { signOut } from "next-auth/react";
 import { getLocale } from "next-intl/server";
 import { redirect } from "next/navigation";
+import prisma from "@/../prisma/prisma";
 
 const showPreviousMessage = async () => {
   const session = await getServerSession();

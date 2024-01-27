@@ -9,7 +9,7 @@ import { redirect, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const useLoginForm = () => {
+const useLoginForm = (locale: string) => {
   const [message, setMessage] = useState({
     message: "",
     status: "",
@@ -43,7 +43,7 @@ const useLoginForm = () => {
           status: "error",
         });
       } else {
-        router.push("/");
+        router.push(`/${locale}/home`);
       }
     },
   });

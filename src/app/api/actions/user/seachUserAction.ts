@@ -1,6 +1,7 @@
 "use server";
 
 import { getServerSession } from "next-auth";
+import prisma from "@/../prisma/prisma";
 
 const searchUserAction = async (username: string) => {
   try {

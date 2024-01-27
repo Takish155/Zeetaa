@@ -8,6 +8,7 @@ import {
   ChangePasswordSchemaType,
   changePasswordSchema,
 } from "@/_schema/settingsSchema/changePasswordSchema";
+import prisma from "@/../prisma/prisma";
 
 const changePasswordAction = async (formData: ChangePasswordSchemaType) => {
   try {

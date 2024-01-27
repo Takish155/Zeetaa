@@ -3,6 +3,7 @@
 import { getServerSession } from "next-auth";
 import { getLocale } from "next-intl/server";
 import { revalidatePath } from "next/cache";
+import prisma from "@/../prisma/prisma";
 
 const cancelSentFriendRequestAction = async (friendRequestId: string) => {
   try {

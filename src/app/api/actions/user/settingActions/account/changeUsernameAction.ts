@@ -9,6 +9,7 @@ import {
   ChangeUsernameSchemaType,
   changeUsernameSchema,
 } from "@/_schema/settingsSchema/changeUsernameSchema";
+import prisma from "@/../prisma/prisma";
 
 const changeUsernameAction = async (data: ChangeUsernameSchemaType) => {
   try {

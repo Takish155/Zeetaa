@@ -5,6 +5,7 @@ import FriendRequestSection from "./FriendRequestSection";
 import MessageSection from "./MessageSection";
 import SignInForm from "@/_component/auth/SignInForm";
 import showNotificationAction from "@/app/api/actions/user/friendActions/showNotificationAction";
+import { redirect } from "next/navigation";
 
 const page = async ({ params }: { params: { locale: string } }) => {
   const session = await getServerSession();
@@ -12,7 +13,7 @@ const page = async ({ params }: { params: { locale: string } }) => {
   const data = await showNotificationAction("all");
 
   if (!session) {
-    return <SignInForm />;
+    return redirect(`/${params.locale}/signin`);
   }
 
   return (

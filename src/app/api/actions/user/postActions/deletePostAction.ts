@@ -2,6 +2,7 @@
 
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
+import prisma from "@/../prisma/prisma";
 
 const deletePostAction = async (postId: string) => {
   try {

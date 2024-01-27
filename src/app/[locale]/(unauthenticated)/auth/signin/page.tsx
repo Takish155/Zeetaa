@@ -20,7 +20,7 @@ const page = async () => {
         <h2>{t("header")}</h2>
         <p>{t("description")}</p>
         <NextIntlClientProvider messages={pick(message, "Login", "FieldError")}>
-          <SignInForm />
+          <SignInForm locale={locale} />
         </NextIntlClientProvider>
       </section>
     </main>

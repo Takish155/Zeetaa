@@ -3,6 +3,7 @@
 import { getServerSession } from "next-auth";
 import { getLocale } from "next-intl/server";
 import { redirect } from "next/navigation";
+import prisma from "@/../prisma/prisma";
 
 const showChatHistoryAction = async (username: string, pageNumber: number) => {
   const session = await getServerSession();

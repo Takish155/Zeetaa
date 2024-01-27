@@ -2,6 +2,7 @@
 
 import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
+import prisma from "@/../prisma/prisma";
 
 const updateBioAction = async (bio: string) => {
   try {

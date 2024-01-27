@@ -1,6 +1,7 @@
 "use server";
 
 import { getServerSession } from "next-auth";
+import prisma from "@/../prisma/prisma";
 
 const showNotificationAction = async (type: string) => {
   try {

@@ -1,6 +1,7 @@
 "use server";
 
 import { getServerSession } from "next-auth";
+import prisma from "@/../prisma/prisma";
 
 const sendMessageAction = async (username: string, message: string) => {
   try {

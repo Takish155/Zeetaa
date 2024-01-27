@@ -9,6 +9,7 @@ import {
   ChangeNameSchemaType,
   changeNameSchema,
 } from "@/_schema/settingsSchema/changeNameSchema";
+import prisma from "@/../prisma/prisma";
 
 const changeNameAction = async (formData: ChangeNameSchemaType) => {
   try {

@@ -4,10 +4,11 @@ import { useTranslations } from "next-intl";
 import React from "react";
 import useLoginForm from "../../_custon_hooks/authentication/useLoginForm";
 
-const SignInForm = () => {
+const SignInForm = ({ locale }: { locale: string }) => {
   const t = useTranslations("Login");
   const errorT = useTranslations("FieldError");
-  const { handleSubmit, register, errors, message, mutation } = useLoginForm();
+  const { handleSubmit, register, errors, message, mutation } =
+    useLoginForm(locale);
 
   return (
     <form

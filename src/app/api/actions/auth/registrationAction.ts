@@ -1,5 +1,6 @@
 "use server";
 
+import prisma from "@/../prisma/prisma";
 import { getTranslations } from "next-intl/server";
 import bcrypt from "bcrypt";
 import {

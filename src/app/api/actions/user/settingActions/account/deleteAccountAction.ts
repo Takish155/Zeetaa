@@ -3,6 +3,7 @@
 import { getServerSession } from "next-auth";
 import bcrypt from "bcrypt";
 import { getTranslations } from "next-intl/server";
+import prisma from "@/../prisma/prisma";
 
 const deleteAccountAction = async (password: string) => {
   try {

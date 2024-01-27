@@ -2,6 +2,7 @@ import { User } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import { getLocale, getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
+import prisma from "@/../prisma/prisma";
 
 const feedLoaderAction = async () => {
   const session = await getServerSession();
