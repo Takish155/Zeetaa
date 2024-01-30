@@ -20,7 +20,10 @@ const layout = async ({
             <Link href={`/${params.locale}/settings`}>{t("account")}</Link>
           </li>
           <li>
-            <Link href={`/${params.locale}/settings/personal_details`}>
+            <Link
+              data-test="nav-details"
+              href={`/${params.locale}/settings/personal_details`}
+            >
               {t("personalDetails")}
             </Link>
           </li>

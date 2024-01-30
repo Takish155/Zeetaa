@@ -9,7 +9,7 @@ const ChangeUsernameSection = ({ username }: { username: string }) => {
     <section>
       <h3>{t("usernameHeading")}</h3>
       <p>{t("usernameDescription")}</p>
-      <p>{username}</p>
+      <p data-test="detail-username">{username}</p>
       <ChangeUsername
         text={t("changeUsernameButton")}
         passwordLabel={t("passwordLabel")}

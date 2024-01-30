@@ -34,13 +34,21 @@ const ChangeUsername = ({
           <input type="password" {...register("password")} />
           {errors.password && <p>{t(errors.password.message)}</p>}
         </div>
-        <button type="submit" disabled={mutation.isPending}>
+        <button
+          data-test="change-username-submit-button"
+          type="submit"
+          disabled={mutation.isPending}
+        >
           {submitLabel}
         </button>
       </form>
     );
   }
-  return <button onClick={() => setToggle(true)}>{text}</button>;
+  return (
+    <button data-test="change-username-button" onClick={() => setToggle(true)}>
+      {text}
+    </button>
+  );
 };
 
 export default ChangeUsername;

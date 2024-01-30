@@ -5,7 +5,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { signIn } from "next-auth/react";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -44,6 +44,7 @@ const useLoginForm = (locale: string) => {
         });
       } else {
         router.push(`/${locale}/home`);
+        router.refresh();
       }
     },
   });

@@ -47,7 +47,7 @@ describe("user journey", () => {
       cy.getByInputName("password").click().type("pogi1919");
       cy.getByData("submit").click();
     });
-    it.only("creates a post and likes it", () => {
+    it("creates a post and likes it", () => {
       cy.location("pathname").should("eq", "/en/home");
       cy.get("textarea").click().type("Testing if post");
       cy.get("form button")
@@ -73,8 +73,42 @@ describe("user journey", () => {
         });
     });
 
-    it("should be able to change username and signin with it", () => {
-      cy.find;
+    it.only("should be able to change username and signin with it", () => {
+      cy.getByData("nav-settings").click();
+      cy.location("pathname").should("eq", "/en/settings");
+      cy.getByData("nav-details").click();
+      cy.location("pathname").should("eq", "/en/settings/personal_details");
+      cy.getByData("change-username-button").click();
+      cy.getByInputName("newUsername").as("usernameInput").should("exist");
+      cy.getByInputName("password").as("passwordInput").should("exist");
+      cy.get("@usernameInput").type("newName").blur();
+      cy.get("@passwordInput").type("pogi1919").blur();
+      cy.getByData("change-username-submit-button")
+        .click()
+        .then(() => {
+          cy.get('[data-test="detail-username"]')
+            .invoke("text")
+            .then((text) => {
+              console.log(text);
+            });
+        });
+      cy.get('[data-test="detail-username"]').should("eq", "newName");
+      cy.getByData("signout").click();
+      cy.getByInputName("username").click().type("takish155");
+      cy.getByInputName("password").click().type("pogi1919");
+      cy.getByData("submit").click();
+      cy.getByData("nav-settings").click();
+      cy.location("pathname").should("eq", "/en/settings");
+      cy.getByData("nav-details").click();
+      cy.location("pathname").should("eq", "/en/settings/personal_details");
+      cy.getByData("change-username-button").click();
+      cy.getByInputName("newUsername").as("usernameInput").should("exist");
+      cy.getByInputName("password").as("passwordInput").should("exist");
+      cy.get("@usernameInput").type("takish155").blur();
+      cy.get("@passwordInput").type("pogi1919").blur();
+      cy.getByData("change-username-submit-button").click();
+
+      cy.getByData("details-username").should("eq", "takish155");
     });
   });
 });

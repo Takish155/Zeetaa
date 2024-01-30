@@ -27,7 +27,7 @@ const SessionHeader = async ({ locale }: { locale: string }) => {
       )}
 
       <li>
-        <Link href={`/${locale}/settings`} data-test="settings">
+        <Link href={`/${locale}/settings`} data-test="nav-settings">
           {t("settings")}
         </Link>
       </li>

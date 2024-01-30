@@ -2,15 +2,17 @@
 
 import { getServerSession } from "next-auth";
 import prisma from "@/../prisma/prisma";
+import { redirect } from "next/navigation";
+import { getLocale } from "next-intl/server";
 
 const showFriendList = async () => {
+  const locale = await getLocale();
+  const session = await getServerSession();
+
+  if (!session) {
+    redirect(`/${locale}/auth/signin`);
+  }
   try {
-    const session = await getServerSession();
-
-    if (!session) {
-      throw new Error("Unauthorized");
-    }
-
     const user = await prisma?.user.findUnique({
       where: {
         email: session?.user?.email!,
