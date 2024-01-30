@@ -1,17 +1,20 @@
 import { getServerSession } from "next-auth";
 import React from "react";
 import PostForm from "./PostForm";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import PostDataSection from "@/_component/feedDisplayer/PostDataSection";
 import feedLoaderAction from "@/app/api/actions/user/dataRequestActions/feedLoaderAction";
 import { redirect } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import { pick } from "lodash";
 
 const page = async () => {
   const session = await getServerSession();
-  const t = await getTranslations("HomePage");
-  const feedData = await feedLoaderAction();
   const locale = await getLocale();
   if (!session) redirect(`/${locale}/auth/signin`);
+  const t = await getTranslations("HomePage");
+  const feedData = await feedLoaderAction();
+  const messages = await getMessages();
 
   return (
     <main>
@@ -20,11 +23,13 @@ const page = async () => {
         <h2>
           {t("postHeading")} {session.user?.name}
         </h2>
-        <PostForm
-          submitText={t("postButton")}
-          privateText={t("private")}
-          publicText={t("public")}
-        />
+        <NextIntlClientProvider messages={pick(messages, "FieldError")}>
+          <PostForm
+            submitText={t("postButton")}
+            privateText={t("private")}
+            publicText={t("public")}
+          />
+        </NextIntlClientProvider>
       </section>
       <article>
         <h2>{t("feedSectionHeading")}</h2>

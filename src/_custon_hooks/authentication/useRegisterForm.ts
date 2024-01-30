@@ -13,7 +13,7 @@ const useRegisterForm = () => {
     message: "",
     status: "",
   });
-  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<"IDLE" | "LOADING">("IDLE");
   const {
     register,
     handleSubmit,
@@ -23,6 +23,7 @@ const useRegisterForm = () => {
   });
 
   const onSubmit = async (data: RegistrationSchemaType) => {
+    setStatus("LOADING");
     const response = await registrationAction(data);
     setMessage(response);
     if (response.status === "success") {
@@ -30,11 +31,12 @@ const useRegisterForm = () => {
         username: data.username,
         password: data.password,
       });
+      return;
     }
-    setLoading(false);
+    setStatus("IDLE");
   };
 
-  return { register, handleSubmit, errors, message, onSubmit, loading };
+  return { register, handleSubmit, errors, message, onSubmit, status };
 };
 
 export default useRegisterForm;

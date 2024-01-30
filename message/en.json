@@ -22,7 +22,8 @@
     "username": "Username",
     "password": "Password",
     "signIn": "Sign In",
-    "authenticationError": "Invalid username or password"
+    "authenticationError": "Invalid username or password",
+    "loginSuccess": "Login successful!"
   },
   "Register": {
     "header": "Sign Up",
@@ -197,6 +198,8 @@
     "passwordMaxError": "Password must be less than 30 letters",
     "confirmPasswordError": "Passwords do not match",
     "noMessageError": "Your message cannot be empty.",
-    "maxMessageError": "Your message cannot be longer than 150 characters."
+    "maxMessageError": "Your message cannot be longer than 150 characters.",
+    "emptyPostMessageError": "Post cannot be empty.",
+    "maxPostMessageError": "Post cannot be longer than 1000 characters."
   }
 }

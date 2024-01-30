@@ -2,15 +2,12 @@
 
 import useRegisterForm from "@/_custon_hooks/authentication/useRegisterForm";
 import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
 
 const SignUpForm = () => {
-  const { register, errors, handleSubmit, message, onSubmit, loading } =
+  const { register, errors, handleSubmit, message, onSubmit, status } =
     useRegisterForm();
   const t = useTranslations("Register");
   const fieldErrorT = useTranslations("FieldError");
-  const searchParams = useSearchParams();
-  const errorMessage = searchParams.get("errorMessage");
 
   return (
     <form
@@ -51,7 +48,11 @@ const SignUpForm = () => {
           <p>{fieldErrorT(errors.confirmPassword.message)}</p>
         )}
       </div>
-      <button type="submit" data-test="submit" disabled={loading}>
+      <button
+        type="submit"
+        data-test="submit"
+        disabled={status === "LOADING" ? true : false}
+      >
         {t("register")}
       </button>
     </form>

@@ -7,13 +7,13 @@ import useLoginForm from "../../_custon_hooks/authentication/useLoginForm";
 const SignInForm = ({ locale }: { locale: string }) => {
   const t = useTranslations("Login");
   const errorT = useTranslations("FieldError");
-  const { handleSubmit, register, errors, message, mutation } =
+  const { handleSubmit, register, errors, message, loginMutation } =
     useLoginForm(locale);
 
   return (
     <form
       onSubmit={handleSubmit((data) => {
-        mutation.mutate({
+        loginMutation.mutate({
           username: data.username,
           password: data.password,
         });
@@ -23,7 +23,7 @@ const SignInForm = ({ locale }: { locale: string }) => {
         <p>
           {message.message === "credentialError"
             ? errorT("credentailFailedError")
-            : ""}
+            : t("loginSuccess")}
         </p>
       )}
       <div>
@@ -36,7 +36,11 @@ const SignInForm = ({ locale }: { locale: string }) => {
         <input type="password" {...register("password")} />
         {errors.password && <p>{errorT("invalidPasswordError")}</p>}
       </div>
-      <button type="submit" data-test="submit">
+      <button
+        type="submit"
+        data-test="submit"
+        disabled={loginMutation.isPending}
+      >
         {t("signIn")}
       </button>
     </form>

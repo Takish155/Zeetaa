@@ -23,7 +23,7 @@ const useLoginForm = (locale: string) => {
   });
   const router = useRouter();
 
-  const mutation = useMutation({
+  const loginMutation = useMutation({
     mutationFn: async ({
       username,
       password,
@@ -49,7 +49,7 @@ const useLoginForm = (locale: string) => {
     },
   });
 
-  return { register, handleSubmit, errors, message, mutation };
+  return { register, handleSubmit, errors, message, loginMutation };
 };
 
 export default useLoginForm;
