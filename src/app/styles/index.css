@@ -1,0 +1,80 @@
+body {
+  font-family: var(--font-poppins), sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5%;
+}
+
+section {
+  width: 45%;
+  min-width: 250px;
+}
+
+h1 {
+  color: black;
+  font-size: 40px; /* Increased font size */
+  margin-bottom: 20px; /* Increased margin-bottom for better spacing */
+}
+
+p {
+  color: #1c1e21;
+  font-size: 20px; /* Increased font size */
+  margin: 0;
+}
+
+h2 {
+  font-size: 28px; /* Increased font size */
+  margin-bottom: 30px; /* Increased margin-bottom for better spacing */
+  color: #1c1e21;
+}
+
+form {
+  background-color: #fff;
+  border-radius: 3%; /* Increased border-radius for rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Increased box-shadow for a more pronounced effect */
+  padding: 5%; /* Increased padding for a larger box */
+}
+
+button {
+  padding: 10px 50px; /* Increased padding for a larger button */
+  border: 0;
+  border-radius: 12px; /* Increased border-radius for rounded corners */
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 20px; /* Increased font size */
+  transition: all 0.5s;
+}
+
+button:active {
+  background-color: #0b0c0c;
+  transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+button:last-child {
+  background-color: #000000;
+}
+
+button:last-child:hover {
+  background-color: #ca4ca0;
+}
+
+@media screen and (max-width: 700px) {
+  section {
+    width: 90%;
+    margin-bottom: 3rem;
+  }
+}

@@ -22,6 +22,7 @@
     "username": "Username",
     "password": "Password",
     "signIn": "Sign In",
+    "signUp": "Sign Up",
     "authenticationError": "Invalid username or password",
     "loginSuccess": "Login successful!"
   },
@@ -44,7 +45,8 @@
     "emailError": "Invalid email address",
     "passwordError": "Password must be more than 6 letters",
     "passwordMaxError": "Password must be less than 30 letters",
-    "confirmPasswordError": "Passwords do not match"
+    "confirmPasswordError": "Passwords do not match",
+    "signIn": "Go back to sign-in page"
   },
   "RegistrationAction": {
     "safeDataError": "Error with parsing data registration.",

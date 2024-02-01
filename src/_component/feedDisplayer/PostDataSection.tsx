@@ -29,20 +29,16 @@ const PostDataSection = async ({
   const date = await formatTimeDifference(feedCreatedDate);
 
   return (
-    <section>
-      <div>
+    <section className="section">
+      <div className="section-div">
         <Image src={noImage} alt="image of the user" width="50" height="50" />
+        <h3>
+          {feedAuthorUsername} <span>({date})</span>
+        </h3>
       </div>
-      <p>
-        @{feedAuthorUsername} <span>({date})</span>
-      </p>
       <p>{feedContent}</p>
       {viewerEmail ? (
-        <LikePostButton
-          postId={feedId}
-          likeText={t("likeButton")}
-          likeCount={likeCount}
-        />
+        <LikePostButton postId={feedId} likeCount={likeCount} />
       ) : (
         <Link href={`/${locale}/auth/signin`}>
           <button>{t("loginToLikeText")}</button>

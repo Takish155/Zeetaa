@@ -1,0 +1,52 @@
+form {
+}
+
+.section {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: left;
+  padding: 15px;
+  margin-left: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 250px;
+  width: 70%;
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+.section-div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.section span {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.section p {
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+}
+
+#button-likes {
+  border: 1px solid #1f1f1f;
+  padding: 5px 25px;
+  margin-right: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  color: #1f1f1f;
+}
+
+#button-delete {
+  background-color: #ba3333;
+  color: #fff;
+  padding: 5px 25px;
+  cursor: pointer;
+}

@@ -16,17 +16,21 @@ const PostForm = ({
     usePostForm();
   const t = useTranslations("FieldError");
   return (
-    <form onSubmit={handleSubmit((data) => postMutation.mutate(data))}>
-      <textarea {...register("post")} />
-      {errors.post && <p>{t(errors.post?.message)}</p>}
-      <select {...register("feedPrivacy")} value={"public"}>
-        <option value="public">{publicText}</option>
-        <option value="private">{privateText}</option>
-      </select>
-      <button type="submit" disabled={postMutation.isPending}>
-        {submitText}
-      </button>
-    </form>
+    <section>
+      <form onSubmit={handleSubmit((data) => postMutation.mutate(data))}>
+        <div>
+          <textarea {...register("post")} />
+        </div>
+        {errors.post && <p>{t(errors.post?.message)}</p>}
+        <select {...register("feedPrivacy")} value={"public"}>
+          <option value="public">{publicText}</option>
+          <option value="private">{privateText}</option>
+        </select>
+        <button type="submit" disabled={postMutation.isPending}>
+          {submitText}
+        </button>
+      </form>
+    </section>
   );
 };
 

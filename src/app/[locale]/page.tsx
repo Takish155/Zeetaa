@@ -5,6 +5,7 @@ import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import SignInForm from "@/_component/auth/SignInForm";
+import "../styles/index.css";
 
 const page = async () => {
   const session = await getServerSession();
@@ -16,13 +17,12 @@ const page = async () => {
 
   return (
     <main>
-      <section>
+      <section className="hero-section">
         <h1>{t("header")}</h1>
         <p>{t("description")}</p>
       </section>
       <section>
-        <h2>Sign-in to your account</h2>
-        <NextIntlClientProvider messages={pick(message, "Login")}>
+        <NextIntlClientProvider messages={pick(message, "Login", "FieldError")}>
           <SignInForm locale={locale} />
         </NextIntlClientProvider>
       </section>

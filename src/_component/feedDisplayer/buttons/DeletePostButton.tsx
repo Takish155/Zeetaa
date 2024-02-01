@@ -16,6 +16,7 @@ const DeletePostButton = ({
 
   return (
     <button
+      id="button-delete"
       onClick={() =>
         deleteMutation.mutate({
           postId: postId.toString(),
@@ -23,7 +24,7 @@ const DeletePostButton = ({
       }
       disabled={deleteMutation.isPending}
     >
-      {deleteText}
+      <i className="fa-solid fa-trash"></i>
     </button>
   );
 };

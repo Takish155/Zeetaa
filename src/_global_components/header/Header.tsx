@@ -12,31 +12,9 @@ const Header = async () => {
 
   return (
     <header>
-      <h1>{t("header")}</h1>
       <nav>
-        <ul>
-          {session ? (
-            <SessionHeader locale={locale} />
-          ) : (
-            <>
-              <li>
-                <Link href="/">{t("home")}</Link>
-              </li>
-              <li>
-                <Link data-test="login-nav" href={`/${locale}/auth/signin`}>
-                  {t("login")}
-                </Link>
-              </li>
-              <li>
-                <Link data-test="register-nav" href={`/${locale}/auth/signup`}>
-                  {t("register")}
-                </Link>
-              </li>
-            </>
-          )}
-        </ul>
+        <ul>{session && <SessionHeader locale={locale} />}</ul>
       </nav>
-      <SearchUser locale={locale} />
     </header>
   );
 };

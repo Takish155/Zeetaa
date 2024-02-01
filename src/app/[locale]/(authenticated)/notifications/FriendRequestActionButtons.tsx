@@ -18,7 +18,7 @@ const FriendRequestActionButtons = ({
   viewProfileText: string;
   friendRequestId: string;
 }) => {
-  const { handleRejectFriendRequest, message, handleAcceptFriendRequest } =
+  const { message, acceptFriendRequestMutation, rejectFriendRequestMutation } =
     useFriendRequestActionButtons();
 
   return (
@@ -29,10 +29,22 @@ const FriendRequestActionButtons = ({
         <p>{message.message}</p>
       ) : (
         <>
-          <button onClick={() => handleAcceptFriendRequest(friendRequestId)}>
+          <button
+            disabled={acceptFriendRequestMutation.isPending}
+            onClick={() =>
+              acceptFriendRequestMutation.mutate({
+                friendRequestId,
+              })
+            }
+          >
             {acceptText}
           </button>
-          <button onClick={() => handleRejectFriendRequest(friendRequestId)}>
+          <button
+            disabled={rejectFriendRequestMutation.isPending}
+            onClick={() =>
+              rejectFriendRequestMutation.mutate({ friendRequestId })
+            }
+          >
             {rejectText}
           </button>
           <button>

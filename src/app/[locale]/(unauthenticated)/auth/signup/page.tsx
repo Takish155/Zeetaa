@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
 import React from "react";
+import "../../../../styles/signup.css";
 
 const page = async () => {
   const session = await getServerSession();

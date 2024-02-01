@@ -19,6 +19,7 @@ const SignInForm = ({ locale }: { locale: string }) => {
         });
       })}
     >
+      <h2>Sign-in to your account</h2>
       {message.message && (
         <p>
           {message.message === "credentialError"
@@ -26,23 +27,33 @@ const SignInForm = ({ locale }: { locale: string }) => {
             : t("loginSuccess")}
         </p>
       )}
-      <div>
+      <div className="field-div">
         <label htmlFor="username">{t("username")}</label>
         <input type="text" {...register("username")} />
-        {errors.username && <p>{errorT("invalidUsernameError")}</p>}
+        {errors.username && (
+          <p className="field-error">{errorT("invalidUsernameError")}</p>
+        )}
       </div>
-      <div>
+      <div className="field-div">
         <label htmlFor="password">{t("password")}</label>
         <input type="password" {...register("password")} />
-        {errors.password && <p>{errorT("invalidPasswordError")}</p>}
+        {errors.password && (
+          <p className="field-error">{errorT("invalidPasswordError")}</p>
+        )}
       </div>
-      <button
-        type="submit"
-        data-test="submit"
-        disabled={loginMutation.isPending}
-      >
-        {t("signIn")}
-      </button>
+      <div>
+        <button
+          style={{ marginRight: "1rem", marginBottom: "1rem" }}
+          type="submit"
+          data-test="submit"
+          disabled={loginMutation.isPending}
+        >
+          {t("signIn")}
+        </button>
+        <button>
+          <a href={`/${locale}/auth/signup`}>{t("signUp")}</a>
+        </button>
+      </div>
     </form>
   );
 };

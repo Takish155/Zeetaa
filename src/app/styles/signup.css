@@ -1,0 +1,28 @@
+body {
+  font-family: var(--font-poppins), sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+}
+
+section {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 5rem auto;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+p {
+  color: #1c1e21;
+  font-size: 16px;
+  margin-bottom: 20px;
+}

@@ -42,10 +42,10 @@ describe("user journey", () => {
     });
   });
   context("user interaction", () => {
+    const username = "takish155";
+    const password = "pogi1919";
     beforeEach(() => {
-      cy.getByInputName("username").click().type("takish155");
-      cy.getByInputName("password").click().type("pogi1919");
-      cy.getByData("submit").click();
+      cy.login(username, password);
     });
     it("creates a post and likes it", () => {
       cy.location("pathname").should("eq", "/en/home");
@@ -74,41 +74,12 @@ describe("user journey", () => {
     });
 
     it.only("should be able to change username and signin with it", () => {
-      cy.getByData("nav-settings").click();
-      cy.location("pathname").should("eq", "/en/settings");
-      cy.getByData("nav-details").click();
-      cy.location("pathname").should("eq", "/en/settings/personal_details");
-      cy.getByData("change-username-button").click();
-      cy.getByInputName("newUsername").as("usernameInput").should("exist");
-      cy.getByInputName("password").as("passwordInput").should("exist");
-      cy.get("@usernameInput").type("newName").blur();
-      cy.get("@passwordInput").type("pogi1919").blur();
-      cy.getByData("change-username-submit-button")
-        .click()
-        .then(() => {
-          cy.get('[data-test="detail-username"]')
-            .invoke("text")
-            .then((text) => {
-              console.log(text);
-            });
-        });
-      cy.get('[data-test="detail-username"]').should("eq", "newName");
+      cy.navigateToSettingsPersonalInfo();
+      cy.changeUsername("newName", "pogi1919");
       cy.getByData("signout").click();
-      cy.getByInputName("username").click().type("takish155");
-      cy.getByInputName("password").click().type("pogi1919");
-      cy.getByData("submit").click();
-      cy.getByData("nav-settings").click();
-      cy.location("pathname").should("eq", "/en/settings");
-      cy.getByData("nav-details").click();
-      cy.location("pathname").should("eq", "/en/settings/personal_details");
-      cy.getByData("change-username-button").click();
-      cy.getByInputName("newUsername").as("usernameInput").should("exist");
-      cy.getByInputName("password").as("passwordInput").should("exist");
-      cy.get("@usernameInput").type("takish155").blur();
-      cy.get("@passwordInput").type("pogi1919").blur();
-      cy.getByData("change-username-submit-button").click();
-
-      cy.getByData("details-username").should("eq", "takish155");
+      cy.login("newName", "pogi1919");
+      cy.navigateToSettingsPersonalInfo();
+      cy.changeUsername("takish155", "pogi1919");
     });
   });
 });

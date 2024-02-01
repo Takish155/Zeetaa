@@ -7,6 +7,7 @@ import feedLoaderAction from "@/app/api/actions/user/dataRequestActions/feedLoad
 import { redirect } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { pick } from "lodash";
+import "@/app/styles/home-page.css";
 
 const page = async () => {
   const session = await getServerSession();
