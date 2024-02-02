@@ -5,30 +5,36 @@ import React from "react";
 
 const PostForm = ({
   submitText,
+  placeholder,
   publicText,
   privateText,
 }: {
   submitText: string;
   publicText: string;
+  placeholder: string;
   privateText: string;
 }) => {
   const { handleSubmit, errors, postMutation, register, message } =
     usePostForm();
   const t = useTranslations("FieldError");
   return (
-    <section>
+    <section className="post-form-section">
       <form onSubmit={handleSubmit((data) => postMutation.mutate(data))}>
-        <div>
-          <textarea {...register("post")} />
-        </div>
-        {errors.post && <p>{t(errors.post?.message)}</p>}
-        <select {...register("feedPrivacy")} value={"public"}>
-          <option value="public">{publicText}</option>
-          <option value="private">{privateText}</option>
-        </select>
-        <button type="submit" disabled={postMutation.isPending}>
-          {submitText}
-        </button>
+        <section className="post-textarea">
+          <textarea placeholder="Whats your mind?" {...register("post")} />
+          {errors.post && (
+            <p className="field-error">{t(errors.post?.message)}</p>
+          )}
+        </section>
+        <section className="post-options">
+          <select {...register("feedPrivacy")} value={"public"}>
+            <option value="public">{publicText}</option>
+            <option value="private">{privateText}</option>
+          </select>
+          <button type="submit" disabled={postMutation.isPending}>
+            {submitText}
+          </button>
+        </section>
       </form>
     </section>
   );

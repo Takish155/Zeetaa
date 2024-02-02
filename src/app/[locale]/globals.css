@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+html {
+  font-family: var(--font-poppins), sans-serif;
+}
+
 .container {
   display: flex;
   gap: 5%;
@@ -23,6 +27,10 @@ header nav ul {
 }
 
 header nav ul li {
+  border-radius: 10rem;
+}
+
+header nav ul li a:link {
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -30,7 +38,6 @@ header nav ul li {
   font-size: 1.25rem;
   font-weight: 600;
   padding: 1.15rem;
-  border-radius: 10rem;
 }
 
 header nav ul li a:link {
@@ -43,6 +50,7 @@ header nav ul li:hover {
 
 main {
   width: 75%;
+  padding-bottom: 5rem;
 }
 
 a {
@@ -144,4 +152,83 @@ button:last-child {
 
 button:last-child:hover {
   background-color: #ca4ca0;
+}
+
+button:last-child:active {
+  background-color: #0b0c0c;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    gap: 0.5rem;
+  }
+  main {
+    width: 90%;
+  }
+
+  header {
+    width: 10%;
+  }
+
+  header nav ul li a:link {
+    padding: 0.75rem;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 1rem;
+  }
+
+  nav .MuiSvgIcon-root {
+    font-size: 2rem;
+  }
+
+  nav a p {
+    display: none;
+  }
+
+  header nav ul li:last-child {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  header {
+    padding: 0.5rem 0;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    top: 91%;
+    background-color: white;
+  }
+
+  header h1 {
+    display: none;
+  }
+
+  header nav {
+    width: 100%;
+  }
+
+  header nav ul {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  header nav ul li a:link {
+    padding: 0.5rem;
+    justify-content: center;
+  }
+
+  header nav ul li {
+    border-radius: 0%;
+  }
 }

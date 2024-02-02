@@ -21,30 +21,36 @@ const SessionHeader = async ({ locale }: { locale: string }) => {
   return (
     <>
       <li>
-        <HomeIcon />
-        <Link href={`/${locale}/home`}>{t("home")}</Link>
+        <Link href={`/${locale}/home`}>
+          <HomeIcon />
+          <p>{t("home")}</p>
+        </Link>
       </li>
       <li>
-        <NotificationsIcon />
-        <Link href={`/${locale}/notifications`}>{t("notifications")}</Link>
+        <Link href={`/${locale}/notifications`}>
+          <NotificationsIcon />
+          <p>{t("notifications")}</p>
+        </Link>
       </li>
       <li>
-        <PeopleIcon />
-        <Link href={`/${locale}/friends`}>{t("friends")}</Link>
+        <Link href={`/${locale}/friends`}>
+          <PeopleIcon />
+          <p>{t("friends")}</p>
+        </Link>
       </li>
       {"username" in userData && (
         <li>
-          <AccountBoxIcon />
           <Link href={`/${locale}/profile/${userData?.username}`}>
-            {t("profile")}
+            <AccountBoxIcon />
+            <p>{t("profile")}</p>
           </Link>
         </li>
       )}
 
       <li>
-        <SettingsIcon />
         <Link href={`/${locale}/settings`} data-test="nav-settings">
-          {t("settings")}
+          <SettingsIcon />
+          <p>{t("settings")}</p>
         </Link>
       </li>
       <SignOutButton />

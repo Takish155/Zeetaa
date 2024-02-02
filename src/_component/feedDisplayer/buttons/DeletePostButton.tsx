@@ -1,17 +1,10 @@
 "use client";
 
 import usePostButtonMutations from "@/_custon_hooks/user_actions/usePostButtonMutations";
-import deletePostAction from "@/app/api/actions/user/postActions/deletePostAction";
 import React from "react";
-import { useFormStatus } from "react-dom";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-const DeletePostButton = ({
-  deleteText,
-  postId,
-}: {
-  deleteText: string;
-  postId: string;
-}) => {
+const DeletePostButton = ({ postId }: { postId: string }) => {
   const { deleteMutation } = usePostButtonMutations();
 
   return (
@@ -24,7 +17,7 @@ const DeletePostButton = ({
       }
       disabled={deleteMutation.isPending}
     >
-      <i className="fa-solid fa-trash"></i>
+      <DeleteIcon />
     </button>
   );
 };

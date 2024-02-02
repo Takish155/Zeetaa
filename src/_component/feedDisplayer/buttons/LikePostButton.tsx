@@ -2,6 +2,7 @@
 
 import usePostButtonMutations from "@/_custon_hooks/user_actions/usePostButtonMutations";
 import React from "react";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 
 const LikePostButton = ({
   postId,
@@ -21,7 +22,7 @@ const LikePostButton = ({
       }
       disabled={likeMutation.isPending}
     >
-      <i className="fa-regular fa-thumbs-up"></i> {likeCount}
+      <ThumbUpIcon /> {likeCount}
     </button>
   );
 };

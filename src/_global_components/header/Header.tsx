@@ -14,18 +14,16 @@ const Header = async () => {
   return (
     <header>
       <h1>
-        <Link href={`/${locale}/`}>
-          <Image
-            src={logo}
-            alt="logo of zeetaa"
-            style={{
-              width: "40%",
-              height: "auto",
-              marginLeft: "1rem",
-              marginTop: "2rem",
-            }}
-          />
-        </Link>
+        <Image
+          src={logo}
+          alt="logo of zeetaa"
+          style={{
+            width: "40%",
+            height: "auto",
+            marginLeft: "1rem",
+            marginTop: "2rem",
+          }}
+        />
       </h1>
       <nav>
         <ul>{session && <SessionHeader locale={locale} />}</ul>

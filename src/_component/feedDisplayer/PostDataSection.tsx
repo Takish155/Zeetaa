@@ -30,23 +30,23 @@ const PostDataSection = async ({
 
   return (
     <section className="section">
-      <div className="section-div">
+      <section className="section-div">
         <Image src={noImage} alt="image of the user" width="50" height="50" />
         <h3>
           {feedAuthorUsername} <span>({date})</span>
         </h3>
-      </div>
+      </section>
       <p>{feedContent}</p>
-      {viewerEmail ? (
-        <LikePostButton postId={feedId} likeCount={likeCount} />
-      ) : (
-        <Link href={`/${locale}/auth/signin`}>
-          <button>{t("loginToLikeText")}</button>
-        </Link>
-      )}
-      {viewerEmail === authorEmail && (
-        <DeletePostButton postId={feedId} deleteText={t("deleteButton")} />
-      )}
+      <section className="button-section">
+        {viewerEmail ? (
+          <LikePostButton postId={feedId} likeCount={likeCount} />
+        ) : (
+          <Link href={`/${locale}/auth/signin`}>
+            <button>{t("loginToLikeText")}</button>
+          </Link>
+        )}
+        {viewerEmail === authorEmail && <DeletePostButton postId={feedId} />}
+      </section>
     </section>
   );
 };

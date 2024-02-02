@@ -19,13 +19,10 @@ const page = async () => {
 
   return (
     <main>
-      <h2>{t("header")}</h2>
       <section>
-        <h2>
-          {t("postHeading")} {session.user?.name}
-        </h2>
         <NextIntlClientProvider messages={pick(messages, "FieldError")}>
           <PostForm
+            placeholder={t("postHeading")}
             submitText={t("postButton")}
             privateText={t("private")}
             publicText={t("public")}
