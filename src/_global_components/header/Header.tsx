@@ -3,7 +3,8 @@ import React from "react";
 import { getServerSession } from "next-auth";
 import { getLocale, getTranslations } from "next-intl/server";
 import SessionHeader from "./SessionHeader";
-import SearchUser from "./SearchUser";
+import logo from "@/../public/images/logo.png";
+import Image from "next/image";
 
 const Header = async () => {
   const t = await getTranslations("Header");
@@ -12,6 +13,20 @@ const Header = async () => {
 
   return (
     <header>
+      <h1>
+        <Link href={`/${locale}/`}>
+          <Image
+            src={logo}
+            alt="logo of zeetaa"
+            style={{
+              width: "40%",
+              height: "auto",
+              marginLeft: "1rem",
+              marginTop: "2rem",
+            }}
+          />
+        </Link>
+      </h1>
       <nav>
         <ul>{session && <SessionHeader locale={locale} />}</ul>
       </nav>

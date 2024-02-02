@@ -7,7 +7,10 @@ import AuthProvider from "@/_context/AuthProvider";
 import Header from "@/_global_components/header/Header";
 import Script from "next/script";
 
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "700"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Zeetaa",
@@ -27,8 +30,10 @@ export default function LocaleLayout({
       <body>
         <QueryProvider>
           <AuthProvider>
-            <Header />
-            {children}
+            <div className="container">
+              <Header />
+              {children}
+            </div>
           </AuthProvider>
         </QueryProvider>
       </body>
