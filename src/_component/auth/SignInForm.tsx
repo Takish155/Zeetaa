@@ -3,10 +3,13 @@
 import { useTranslations } from "next-intl";
 import React from "react";
 import useLoginForm from "../../_custon_hooks/authentication/useLoginForm";
+import { useSearchParams } from "next/navigation";
 
 const SignInForm = ({ locale }: { locale: string }) => {
   const t = useTranslations("Login");
   const errorT = useTranslations("FieldError");
+  const searchParams = useSearchParams();
+  const errorMessage = searchParams.get("errorMessage");
   const { handleSubmit, register, errors, message, loginMutation } =
     useLoginForm(locale);
 
@@ -20,12 +23,8 @@ const SignInForm = ({ locale }: { locale: string }) => {
       })}
     >
       <h2>Sign-in to your account</h2>
-      {message.message && (
-        <p>
-          {message.message === "credentialError"
-            ? errorT("credentailFailedError")
-            : t("loginSuccess")}
-        </p>
+      {errorMessage && (
+        <p className="field-error">{errorT("credentailFailedError")}</p>
       )}
       <div className="field-div">
         <label htmlFor="username">{t("username")}</label>

@@ -4,6 +4,10 @@ body {
   margin: 0;
 }
 
+main {
+  width: 100vw;
+}
+
 section {
   background-color: #fff;
   border-radius: 8px;

@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
 import React from "react";
+import "@/app/styles/signup.css";
 
 const page = async () => {
   const session = await getServerSession();
@@ -17,8 +18,6 @@ const page = async () => {
   return (
     <main>
       <section>
-        <h2>{t("header")}</h2>
-        <p>{t("description")}</p>
         <NextIntlClientProvider messages={pick(message, "Login", "FieldError")}>
           <SignInForm locale={locale} />
         </NextIntlClientProvider>

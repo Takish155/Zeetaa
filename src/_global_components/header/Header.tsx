@@ -11,25 +11,29 @@ const Header = async () => {
   const session = await getServerSession();
   const locale = await getLocale();
 
-  return (
-    <header>
-      <h1>
-        <Image
-          src={logo}
-          alt="logo of zeetaa"
-          style={{
-            width: "40%",
-            height: "auto",
-            marginLeft: "1rem",
-            marginTop: "2rem",
-          }}
-        />
-      </h1>
-      <nav>
-        <ul>{session && <SessionHeader locale={locale} />}</ul>
-      </nav>
-    </header>
-  );
+  if (session) {
+    return (
+      <header>
+        <h1>
+          <Image
+            src={logo}
+            alt="logo of zeetaa"
+            style={{
+              width: "40%",
+              height: "auto",
+              marginLeft: "1rem",
+              marginTop: "2rem",
+            }}
+          />
+        </h1>
+        <nav>
+          <ul>
+            <SessionHeader locale={locale} />
+          </ul>
+        </nav>
+      </header>
+    );
+  }
 };
 
 export default Header;

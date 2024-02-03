@@ -5,12 +5,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import prisma from "../../../../../prisma/prisma";
 
 export const authOptions: AuthOptions = {
-  pages: {
-    signIn: "/en/auth/signin",
-    error: "/en/auth/signin",
-  },
   adapter: PrismaAdapter(prisma),
-
   providers: [
     CredentialsProvider({
       name: "Credentials", // Sets the login system name
@@ -24,6 +19,7 @@ export const authOptions: AuthOptions = {
           placeholder: "Password",
         },
       },
+
       // Authenticator
       async authorize(credentials, req) {
         // If nothing is written, it returns an error
@@ -47,5 +43,8 @@ export const authOptions: AuthOptions = {
   ],
   session: {
     strategy: "jwt",
+  },
+  pages: {
+    signIn: "/",
   },
 };

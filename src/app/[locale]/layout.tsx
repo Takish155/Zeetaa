@@ -5,7 +5,6 @@ import { ReactNode } from "react";
 import QueryProvider from "@/_context/QueryProvider";
 import AuthProvider from "@/_context/AuthProvider";
 import Header from "@/_global_components/header/Header";
-import Script from "next/script";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -26,7 +25,6 @@ export default function LocaleLayout({
 }) {
   return (
     <html lang={locale} className={poppins.className}>
-      <Script src="https://kit.fontawesome.com/1142d85068.js" />
       <body>
         <QueryProvider>
           <AuthProvider>
