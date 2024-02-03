@@ -6,6 +6,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import formatTimeDifference from "@/_util/formatTimeDifference";
 import Image from "next/image";
 import noImage from "@/../public/images/noimage.jpg";
+import styles from "@/app/[locale]/(authenticated)/home/home-page.module.css";
 
 const PostDataSection = async ({
   feedId,
@@ -29,15 +30,16 @@ const PostDataSection = async ({
   const date = await formatTimeDifference(feedCreatedDate);
 
   return (
-    <section className="section">
-      <section className="section-div">
+    <section className={styles.postSection}>
+      <section className={styles.postSectionDiv}>
         <Image src={noImage} alt="image of the user" width="50" height="50" />
         <h3>
-          {feedAuthorUsername} <span>({date})</span>
+          {feedAuthorUsername}{" "}
+          <span className={styles.timeStamp}>({date})</span>
         </h3>
       </section>
       <p>{feedContent}</p>
-      <section className="button-section">
+      <section className={styles.buttonSection}>
         {viewerEmail ? (
           <LikePostButton postId={feedId} likeCount={likeCount} />
         ) : (

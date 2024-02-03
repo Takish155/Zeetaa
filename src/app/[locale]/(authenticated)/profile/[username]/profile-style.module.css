@@ -1,0 +1,73 @@
+.profileMain h2 {
+  font-size: 2rem;
+}
+
+.imageSection {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  width: 90%;
+  margin: 2rem auto 1.25rem auto;
+  padding-top: 4rem;
+}
+
+.imageSection img {
+  border-radius: 50%;
+  border: 2px solid #1f1f1f;
+}
+
+.profileMain p {
+  font-size: 1.25rem;
+  min-width: 180px;
+}
+
+.joinText {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profileMain h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.friendRequestionAction {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.friendRequestionAction button {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.75rem 1rem;
+}
+
+.friendRequestionAction button:first-child {
+  background-color: inherit;
+  border: 2px solid #1f1f1f !important;
+  color: #1f1f1f;
+  border: none;
+  border-radius: 5px;
+}
+
+.acceptButton {
+  background-color: #2e7d32;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.declineButton,
+.friendRequestionAction button:last-child {
+  background-color: #c62828;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}

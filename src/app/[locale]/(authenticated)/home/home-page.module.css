@@ -1,15 +1,15 @@
-.post-form-section {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+.postFormSection {
+  margin-top: 5rem;
   width: 90%;
 }
 
-.post-textarea {
+.postTextarea {
   margin-bottom: 1rem;
 }
 
-textarea {
+.postFormSection textarea {
   width: 70%;
+  resize: none;
   font-size: 1rem;
   height: 15vh;
   padding: 1rem; /* Increased padding for better spacing */
@@ -17,69 +17,75 @@ textarea {
   border-radius: 8px; /* Increased border-radius for rounded corners */
 }
 
-textarea::placeholder {
+.postFormSection textarea::placeholder {
   font-size: 1rem;
   font-weight: 700;
 }
 
-.post-options {
+.postFormSection .postOptions {
   display: flex;
   justify-content: space-between;
   width: 70%;
 }
 
-select {
+.postFormSection select {
   padding: 15px; /* Increased padding for better spacing */
   border: 2px solid #ddd; /* Increased border size for better visibility */
   border-radius: 8px; /* Increased border-radius for rounded corners */
   width: 200px;
 }
 
-h2 {
+.homeMain h2 {
   font-size: 2.25rem;
+  margin-top: 2.35rem;
   margin-bottom: 0.65rem;
 }
 
-.section {
+.postSection {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: left;
   padding: 15px;
   margin-left: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   min-width: 250px;
   width: 70%;
   margin-left: 1rem;
   margin-bottom: 2rem;
 }
 
-.section-div {
+.postSection .postSectionDiv {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
-.button-section {
+.postSectionDiv img {
+  border-radius: 50%;
+  border: 2px solid #1f1f1f;
+}
+
+.buttonSection {
   display: flex;
   gap: 1rem;
 }
 
-.section h3 {
+.postSection h3 {
   font-size: 1.1rem;
   font-weight: 700;
 }
 
-.section span {
+.timeStamp {
   font-weight: 500;
   font-size: 0.9rem;
 }
 
-.section p {
+.postSection p {
   margin-bottom: 1rem;
   word-wrap: break-word;
 }
 
-#button-likes {
+.likeButton {
   display: flex;
   align-items: center;
   border: 1px solid #1f1f1f;
@@ -90,7 +96,7 @@ h2 {
   gap: 0.5rem;
 }
 
-#button-delete {
+.deleteButton {
   background-color: #ba3333;
   color: #fff;
   padding: 5px 25px;
@@ -98,29 +104,29 @@ h2 {
 }
 
 @media screen and (max-width: 900px) {
-  form {
+  .homeMain form {
     width: 100%;
   }
 
-  h2 {
+  .homeMain h2 {
     margin-left: 1rem;
   }
 
-  .section {
+  .homeMain .postSection {
     width: 90%;
   }
 
-  .post-form-section {
+  .homeMain .postFormSection {
     width: 100%;
   }
-  .post-textarea,
-  .post-options {
+  .homeMain .postTextarea,
+  .homeMain .postOptions {
     width: 90%;
     margin: 0 auto;
     gap: 1rem;
   }
 
-  textarea {
+  .homeMain textarea {
     width: 100%;
   }
 }

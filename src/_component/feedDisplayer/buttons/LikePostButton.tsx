@@ -3,6 +3,7 @@
 import usePostButtonMutations from "@/_custon_hooks/user_actions/usePostButtonMutations";
 import React from "react";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import styles from "@/app/[locale]/(authenticated)/home/home-page.module.css";
 
 const LikePostButton = ({
   postId,
@@ -14,6 +15,7 @@ const LikePostButton = ({
   const { likeMutation } = usePostButtonMutations();
   return (
     <button
+      className={styles.likeButton}
       id="button-likes"
       onClick={() =>
         likeMutation.mutate({

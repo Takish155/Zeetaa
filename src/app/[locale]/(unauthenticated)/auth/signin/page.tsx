@@ -16,7 +16,7 @@ const page = async () => {
   const message = await getMessages();
 
   return (
-    <main>
+    <main className="auth-main">
       <section>
         <NextIntlClientProvider messages={pick(message, "Login", "FieldError")}>
           <SignInForm locale={locale} />

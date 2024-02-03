@@ -15,7 +15,7 @@ const page = async () => {
   const t = await getTranslations("Register");
   const message = await getMessages();
   return (
-    <main>
+    <main className="auth-main">
       <section>
         <h2>{t("header")}</h2>
         <p>{t("description")}</p>

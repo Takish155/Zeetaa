@@ -14,6 +14,7 @@ const page = async ({ params }: { params: { locale: string } }) => {
               notificationId={request.id}
               senderUsername={request.senderUsername!}
               key={request.id}
+              dateSent={request.createdAt}
             />
           );
         })

@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import Header from "@/_global_components/header/Header";
+import Header from "@/_global_components/header/HamburgerHeader";
 import { render, screen } from "@testing-library/react";
 
 describe("Home", () => {

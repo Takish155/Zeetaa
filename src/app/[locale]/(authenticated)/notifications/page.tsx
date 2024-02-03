@@ -3,7 +3,6 @@ import { getTranslations } from "next-intl/server";
 import React from "react";
 import FriendRequestSection from "./FriendRequestSection";
 import MessageSection from "./MessageSection";
-import SignInForm from "@/_component/auth/SignInForm";
 import showNotificationAction from "@/app/api/actions/user/friendActions/showNotificationAction";
 import { redirect } from "next/navigation";
 
@@ -18,18 +17,20 @@ const page = async ({ params }: { params: { locale: string } }) => {
 
   return (
     <>
-      <h2>{t("header")}</h2>
       <article>
         {Array.isArray(data) ? (
           data?.map((notification) => {
             if (notification.type === "friendrequest") {
               return (
-                <FriendRequestSection
-                  locale={params.locale}
-                  notificationId={notification.id}
-                  senderUsername={notification.senderUsername!}
-                  key={notification.id}
-                />
+                <>
+                  <FriendRequestSection
+                    dateSent={notification.createdAt}
+                    locale={params.locale}
+                    notificationId={notification.id}
+                    senderUsername={notification.senderUsername!}
+                    key={notification.id}
+                  />
+                </>
               );
             }
             return (

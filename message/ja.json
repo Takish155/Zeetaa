@@ -7,7 +7,8 @@
     "login": "Sign In",
     "register": "Sign Up",
     "profile": "Profile",
-    "signOut": "Sign Out"
+    "signOut": "Sign Out",
+    "search": "Search User"
   },
   "Index": {
     "header": "Zeetaa",
@@ -70,7 +71,7 @@
     "loginToLikeText": "Login to like this post"
   },
   "ProfilePage": {
-    "joinedIn": "Joined Zeetaa on",
+    "joinedIn": "Joined on",
     "feedHeading": "Feeds",
     "addFriend": "Send Friend Request",
     "removeFriend": "Remove Friend",

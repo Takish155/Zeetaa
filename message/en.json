@@ -8,7 +8,8 @@
     "register": "Sign Up",
     "profile": "Profile",
     "settings": "Settings",
-    "signOut": "Sign Out"
+    "signOut": "Sign Out",
+    "search": "Search username"
   },
   "Index": {
     "header": "Zeetaa",
@@ -76,7 +77,7 @@
     "loginToLikeText": "Login to like this post"
   },
   "ProfilePage": {
-    "joinedIn": "Joined Zeetaa on",
+    "joinedIn": "Joined on",
     "feedHeading": "Feeds",
     "addFriend": "Send Friend Request",
     "removeFriend": "Remove Friend",
@@ -95,7 +96,7 @@
     "someoneSentYouFriendRequestText": "sent you a friend request!",
     "acceptButton": "Accept",
     "rejectButton": "Reject",
-    "messageBack": "Message Back",
+    "messageBack": "Reply",
     "viewProfileText": "View Profile",
     "noSessionError": "You must be logged in to view this page.",
     "invalidFriendRequestError": "Invalid friend request.",

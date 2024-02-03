@@ -5,10 +5,13 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { Router } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const useLoginForm = (locale: string) => {
+  const router = useRouter();
   const [message, setMessage] = useState({
     message: "",
     status: "",
@@ -32,13 +35,17 @@ const useLoginForm = (locale: string) => {
       await signIn("credentials", {
         username: username,
         password: password,
+        redirect: false,
       }),
     onSettled: (res) => {
-      if (res?.error) {
+      if (!res?.ok) {
         setMessage({
           message: "credentialError",
           status: "error",
         });
+      } else {
+        router.push(`/${locale}/home`);
+        router.refresh();
       }
     },
   });

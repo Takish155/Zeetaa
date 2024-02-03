@@ -1,0 +1,131 @@
+.notificationMain {
+  display: flex;
+  padding-top: 3rem;
+  gap: 2%;
+}
+
+.notificationContainer {
+  width: 30%;
+  height: 30vh;
+  min-height: 300px;
+  position: sticky;
+  top: 0;
+}
+
+.notificationContainer h2 {
+  font-size: 1.65rem;
+  margin-top: 20vh;
+  margin-bottom: 1rem;
+}
+
+.notificationNav {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+}
+
+.notificationNav ul {
+  list-style: none;
+}
+
+.notificationSection {
+  width: 65%;
+}
+
+.notificationNav ul {
+  width: 100%;
+  list-style: none;
+}
+
+.notificationNav ul li a:link {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  cursor: pointer;
+  padding: 1.15rem;
+}
+
+.notificationNav ul li a:link {
+  width: 100%;
+}
+
+.notificationNav ul li:hover {
+  background-color: #f5f5f5;
+}
+
+.notificationMain article {
+  width: 100%;
+}
+
+.notificationSections {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  margin: 3rem auto;
+  padding: 1rem;
+}
+
+.notificationSections img {
+  border-radius: 50%;
+  border: 2px solid #1f1f1f;
+}
+
+.friendActionButtonContainer {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.friendActionButtonContainer button:nth-child(2) {
+  background-color: #ba3333;
+}
+
+.senderInfoSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.receivedMessage {
+  font-size: 1.15rem;
+}
+
+.sentDate {
+  text-align: right;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonContainer button,
+.friendActionButtonContainer button:nth-child(3) {
+  background-color: inherit;
+  color: #1f1f1f;
+  border: #1f1f1f 1px solid;
+}
+
+@media screen and (max-width: 900px) {
+  .notificationSection {
+    width: 84%;
+  }
+  .notificationMain h2 {
+    display: none;
+  }
+  .notificationContainer {
+    top: 5rem;
+    margin-top: 5rem;
+    width: 10%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .notificationContainer {
+    width: 20%;
+  }
+}

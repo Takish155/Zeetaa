@@ -8,29 +8,75 @@ html {
   font-family: var(--font-poppins), sans-serif;
 }
 
+.main-header {
+  width: 100vw;
+  display: flex;
+  position: fixed;
+  top: 0;
+  background-color: rgb(255, 255, 255, 0.96);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 0;
+}
+
+.main-header h1 {
+  display: flex;
+  align-items: center;
+  width: 20%;
+  max-width: 100px;
+}
+
+.main-header a:link {
+  display: flex;
+  align-items: center;
+}
+
+.main-header img {
+  width: 100%;
+  height: auto;
+}
+
+.searchInput {
+  display: flex;
+  justify-content: flex-end;
+  width: 75%;
+  gap: 0.5rem;
+}
+
+.searchInput input {
+  max-width: 300px;
+}
+
+.searchButton {
+  padding: 0.5rem 1rem;
+}
+
 .container {
   display: flex;
   gap: 5%;
+  padding-top: 3rem;
 }
 
-header {
+.session-header {
   width: 20%;
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: 14%;
+  height: 50vh;
+  min-height: 350px;
 }
 
-header nav ul {
+.session-header nav ul {
   width: 90%;
   margin-left: 5%;
   list-style: none;
 }
 
-header nav ul li {
+.session-header nav ul li {
   border-radius: 10rem;
 }
 
-header nav ul li a:link {
+.session-header nav ul li a:link {
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -40,17 +86,16 @@ header nav ul li a:link {
   padding: 1.15rem;
 }
 
-header nav ul li a:link {
+.session-header nav ul li a:link {
   width: 100%;
 }
 
-header nav ul li:hover {
+.session-header nav ul li:hover {
   background-color: #f2f2f2;
 }
 
 main {
   width: 75%;
-  padding-bottom: 5rem;
 }
 
 a {
@@ -65,27 +110,6 @@ a {
   position: relative;
   max-width: 190px;
 }
-
-/* button:disabled {
-  width: 40px;
-  height: 40px;
-  border: 7px solid rgb(134, 134, 134);
-  border-bottom-color: #1f1f1f;
-  border-radius: 50%;
-  color: transparent;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-}
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} */
 
 .field-div {
   margin-bottom: 20px; /* Increased margin-bottom for better spacing */
@@ -129,33 +153,15 @@ button {
 }
 
 button:hover {
-  background-color: #020c13;
   box-shadow: 0 0 25px #6fc5ff50;
   transform: scale(1.1);
   cursor: pointer;
 }
 
 button:active {
-  background-color: #0b0c0c;
   transition: all 0.25s;
   box-shadow: none;
   transform: scale(0.98);
-}
-
-button:hover {
-  background-color: #ca4ca0;
-}
-
-button:last-child {
-  background-color: #000000;
-}
-
-button:last-child:hover {
-  background-color: #ca4ca0;
-}
-
-button:last-child:active {
-  background-color: #0b0c0c;
 }
 
 @media screen and (max-width: 900px) {
@@ -166,11 +172,11 @@ button:last-child:active {
     width: 90%;
   }
 
-  header {
+  .session-header {
     width: 10%;
   }
 
-  header nav ul li a:link {
+  .session-header nav ul li a:link {
     padding: 0.75rem;
     justify-content: center;
     align-content: center;
@@ -185,7 +191,7 @@ button:last-child:active {
     display: none;
   }
 
-  header nav ul li:last-child {
+  .session-header nav ul li:last-child {
     display: none;
   }
 }
@@ -197,9 +203,10 @@ button:last-child:active {
 
   main {
     width: 100%;
+    padding-bottom: 5rem;
   }
 
-  header {
+  .session-header {
     padding: 0.5rem 0;
     width: 100vw;
     position: fixed;
@@ -208,27 +215,27 @@ button:last-child:active {
     background-color: white;
   }
 
-  header h1 {
+  .session-header h1 {
     display: none;
   }
 
-  header nav {
+  .session-header nav {
     width: 100%;
   }
 
-  header nav ul {
+  .session-header nav ul {
     margin-left: 0;
     width: 100%;
     display: flex;
     justify-content: space-around;
   }
 
-  header nav ul li a:link {
+  .session-header nav ul li a:link {
     padding: 0.5rem;
     justify-content: center;
   }
 
-  header nav ul li {
+  .session-header nav ul li {
     border-radius: 0%;
   }
 }

@@ -1,39 +1,27 @@
-import Link from "next/link";
-import React from "react";
-import { getServerSession } from "next-auth";
-import { getLocale, getTranslations } from "next-intl/server";
-import SessionHeader from "./SessionHeader";
-import logo from "@/../public/images/logo.png";
 import Image from "next/image";
+import React, { Suspense } from "react";
+import logo from "@/../public/images/logo.png";
 
-const Header = async () => {
-  const t = await getTranslations("Header");
-  const session = await getServerSession();
-  const locale = await getLocale();
+import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
+import SearchInput from "./SearchInput";
 
-  if (session) {
-    return (
-      <header>
-        <h1>
-          <Image
-            src={logo}
-            alt="logo of zeetaa"
-            style={{
-              width: "40%",
-              height: "auto",
-              marginLeft: "1rem",
-              marginTop: "2rem",
-            }}
-          />
-        </h1>
-        <nav>
-          <ul>
-            <SessionHeader locale={locale} />
-          </ul>
-        </nav>
-      </header>
-    );
-  }
+const Header = () => {
+  const t = useTranslations("Header");
+  const locale = useLocale();
+
+  return (
+    <header className="main-header">
+      <h1>
+        <Link href="/">
+          <Image src={logo} alt="logo of zeetaa" />
+        </Link>
+      </h1>
+      <Suspense fallback="loading">
+        <SearchInput placeholder={t("search")} locale={locale} />
+      </Suspense>
+    </header>
+  );
 };
 
 export default Header;

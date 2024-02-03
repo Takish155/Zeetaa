@@ -10,6 +10,8 @@ import PostDataSection from "@/_component/feedDisplayer/PostDataSection";
 import showProfileAction from "@/app/api/actions/showProfileAction";
 import Image from "next/image";
 import noImage from "@/../public/images/noimage.jpg";
+import styles from "./profile-style.module.css";
+import CelebrationIcon from "@mui/icons-material/Celebration";
 
 const page = async ({
   params,
@@ -21,66 +23,74 @@ const page = async ({
   const t = await getTranslations("ProfilePage");
 
   return (
-    <main>
+    <main className={styles.profileMain}>
       <section>
-        <section>
-          <Image src={noImage} alt="image of the user" width={50} height={50} />
+        <section className={styles.imageSection}>
+          <Image
+            src={noImage}
+            alt="image of the user"
+            width={100}
+            height={100}
+          />
+          <div>
+            <h2>{profileData?.userInfo?.username}</h2>
+            <p>{profileData.userInfo?.bio}</p>
+            <p className={styles.joinText}>
+              <CelebrationIcon />
+              {t("joinedIn")} {profileData?.userInfo?.createdAt.toDateString()}
+            </p>
+          </div>
         </section>
-        <section>
-          <h2>{profileData?.userInfo?.username}</h2>
-          <p>
-            {t("joinedIn")} {profileData?.userInfo?.createdAt.toDateString()}
-          </p>
-          <p>{profileData.userInfo?.bio}</p>
+        <section className={styles.friendRequestionAction}>
           {session?.user?.email !== profileData.userInfo?.email &&
             (profileData.relationship === "friend" ? (
               <>
+                <button>
+                  <Link href={`/${params.locale}/messages/${params.username}`}>
+                    {t("message")}
+                  </Link>
+                </button>
                 <RemoveActionButton
                   removeText={t("removeFriend")}
                   friendId={profileData.friendId!}
                 />
+              </>
+            ) : profileData.relationship === "stranger" ? (
+              <>
                 <button>
                   <Link href={`/${params.locale}/messages/${params.username}`}>
                     {t("message")}
                   </Link>
                 </button>
-              </>
-            ) : profileData.relationship === "stranger" ? (
-              <>
                 <FriendActionButton
                   textButton={t("addFriend")}
                   userId={profileData.userInfo?.id!}
                 />
+              </>
+            ) : profileData.relationship === "alreadySentFriendRequest" ? (
+              <>
                 <button>
                   <Link href={`/${params.locale}/messages/${params.username}`}>
                     {t("message")}
                   </Link>
                 </button>
-              </>
-            ) : profileData.relationship === "alreadySentFriendRequest" ? (
-              <>
                 <CancelSentFriendRequestActionButton
                   cancelButtonText={t("cancelFriendRequest")}
                   friendRequestId={profileData.friendRequestId!}
                 />
+              </>
+            ) : profileData.relationship === "receivedFriendRequest" ? (
+              <>
                 <button>
                   <Link href={`/${params.locale}/messages/${params.username}`}>
                     {t("message")}
                   </Link>
                 </button>
-              </>
-            ) : profileData.relationship === "receivedFriendRequest" ? (
-              <>
                 <IncomingFriendRequestAction
                   friendRequestId={profileData.friendRequestId!}
                   acceptText={t("acceptFriendRequest")}
                   rejectText={t("rejectFriendRequest")}
                 />
-                <button>
-                  <Link href={`/${params.locale}/messages/${params.username}`}>
-                    {t("message")}
-                  </Link>
-                </button>
               </>
             ) : (
               <Link href={`/${params.locale}/auth/signin`}>

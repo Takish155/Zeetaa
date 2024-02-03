@@ -2,6 +2,7 @@
 import useFriendRequestActionButtons from "@/_custon_hooks/user_actions/useFriendRequestActionButtons";
 import Link from "next/link";
 import React from "react";
+import styles from "./notifications.module.css";
 
 const FriendRequestActionButtons = ({
   acceptText,
@@ -22,7 +23,7 @@ const FriendRequestActionButtons = ({
     useFriendRequestActionButtons();
 
   return (
-    <div>
+    <div className={styles.friendActionButtonContainer}>
       {message.action === "rejectFriendRequest" ? (
         <p>{message.message}</p>
       ) : message.action === "acceptFriendRequest" ? (

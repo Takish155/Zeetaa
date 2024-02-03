@@ -4,6 +4,7 @@ import "./globals.css";
 import { ReactNode } from "react";
 import QueryProvider from "@/_context/QueryProvider";
 import AuthProvider from "@/_context/AuthProvider";
+import HamburgerHeader from "@/_global_components/header/HamburgerHeader";
 import Header from "@/_global_components/header/Header";
 
 const poppins = Poppins({
@@ -28,8 +29,9 @@ export default function LocaleLayout({
       <body>
         <QueryProvider>
           <AuthProvider>
+            <Header />
             <div className="container">
-              <Header />
+              <HamburgerHeader />
               {children}
             </div>
           </AuthProvider>

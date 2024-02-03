@@ -2,6 +2,7 @@
 import usePostForm from "@/_custon_hooks/user_actions/usePostForm";
 import { useTranslations } from "next-intl";
 import React from "react";
+import styles from "./home-page.module.css";
 
 const PostForm = ({
   submitText,
@@ -18,15 +19,15 @@ const PostForm = ({
     usePostForm();
   const t = useTranslations("FieldError");
   return (
-    <section className="post-form-section">
+    <section className={styles.postFormSection}>
       <form onSubmit={handleSubmit((data) => postMutation.mutate(data))}>
-        <section className="post-textarea">
+        <section className={styles.postTextarea}>
           <textarea placeholder="Whats your mind?" {...register("post")} />
           {errors.post && (
             <p className="field-error">{t(errors.post?.message)}</p>
           )}
         </section>
-        <section className="post-options">
+        <section className={styles.postOptions}>
           <select {...register("feedPrivacy")} value={"public"}>
             <option value="public">{publicText}</option>
             <option value="private">{privateText}</option>

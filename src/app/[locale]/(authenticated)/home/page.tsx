@@ -7,7 +7,7 @@ import feedLoaderAction from "@/app/api/actions/user/dataRequestActions/feedLoad
 import { redirect } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { pick } from "lodash";
-import "@/app/styles/home-page.css";
+import styles from "./home-page.module.css";
 
 const page = async () => {
   const session = await getServerSession();
@@ -18,7 +18,7 @@ const page = async () => {
   const messages = await getMessages();
 
   return (
-    <main>
+    <main className={styles.homeMain}>
       <section>
         <NextIntlClientProvider messages={pick(messages, "FieldError")}>
           <PostForm

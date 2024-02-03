@@ -16,7 +16,7 @@ const page = async () => {
   const message = await getMessages();
 
   return (
-    <main>
+    <main className="home-main">
       <section className="hero-section">
         <h1>{t("header")}</h1>
         <p>{t("description")}</p>

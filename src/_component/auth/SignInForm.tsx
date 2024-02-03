@@ -23,7 +23,7 @@ const SignInForm = ({ locale }: { locale: string }) => {
       })}
     >
       <h2>Sign-in to your account</h2>
-      {errorMessage && (
+      {message.status === "error" && (
         <p className="field-error">{errorT("credentailFailedError")}</p>
       )}
       <div className="field-div">
