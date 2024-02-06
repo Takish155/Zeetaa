@@ -1,6 +1,7 @@
 import React from "react";
 import ChangeUsername from "../(changeForms)/ChangeUsernameForm";
 import { useTranslations } from "next-intl";
+import styles from "./../personal-details.module.css";
 
 const ChangeUsernameSection = ({ username }: { username: string }) => {
   const t = useTranslations("PersonalDetailsPage");
@@ -8,8 +9,10 @@ const ChangeUsernameSection = ({ username }: { username: string }) => {
   return (
     <section>
       <h3>{t("usernameHeading")}</h3>
+      <p data-test="detail-username" className={styles.personalInfoText}>
+        {username}
+      </p>
       <p>{t("usernameDescription")}</p>
-      <p data-test="detail-username">{username}</p>
       <ChangeUsername
         text={t("changeUsernameButton")}
         passwordLabel={t("passwordLabel")}

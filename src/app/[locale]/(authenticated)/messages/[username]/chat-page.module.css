@@ -1,0 +1,95 @@
+.chatMain {
+  padding-top: 4rem;
+  overflow: hidden;
+}
+
+.chatMain h2 {
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+}
+
+.chatSection {
+  height: 70vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.recentChatSection {
+  width: 100% !important;
+  max-width: none !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatSection section {
+  margin-bottom: 2rem;
+  max-width: 500px;
+  width: 90%;
+}
+
+.chatContent {
+  padding: 1rem;
+  margin: 0 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+  line-break: anywhere;
+}
+
+.createdAt {
+  margin: 0.5rem 1.35rem;
+}
+
+.fromMe {
+  align-self: flex-end;
+  margin: 1rem;
+  text-align: right;
+}
+
+.fromMe .chatContent {
+  background-color: #507dbc;
+  color: #dae3e5;
+}
+
+.messageSection {
+  width: 100%;
+  bottom: 0;
+  height: 10vh;
+  background-color: #fff;
+  position: sticky;
+  padding-bottom: 1rem;
+}
+
+.chatMain form {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 1rem;
+  width: 100%;
+}
+
+.chatMain textarea {
+  width: 70%;
+  padding: 15px; /* Increased padding for better spacing */
+  border: 2px solid #ddd; /* Increased border size for better visibility */
+  border-radius: 8px; /* Increased border-radius for rounded corners */
+  resize: none;
+}
+
+.chatMain button {
+  width: 24%;
+  padding: 0;
+  max-width: 200px;
+}
+
+@media screen and (max-width: 600px) {
+  .messageSection {
+    padding-bottom: 1rem;
+  }
+  .chatMain {
+    margin-top: 0 !important;
+  }
+  .chatSection {
+    height: 57vh;
+  }
+}

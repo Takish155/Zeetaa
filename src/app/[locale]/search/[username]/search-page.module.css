@@ -1,0 +1,64 @@
+.main {
+  padding-top: 4rem;
+  min-height: 90vh;
+}
+
+.errorText {
+  padding-top: 3rem;
+}
+
+.main h2 {
+  font-size: 2.25rem;
+  margin-top: 5rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.article {
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  text-align: center;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.section {
+  color: #000000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  border-radius: 5px;
+  padding-top: 1rem;
+  padding: 1.5rem 1rem;
+}
+
+.section img {
+  width: 80%;
+  height: auto;
+}
+
+.profilename {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.buttonContainer button {
+  font-size: 0.75rem;
+}
+
+.buttonContainer button:last-child {
+  background-color: inherit;
+  color: black;
+  border: 2px solid black;
+}

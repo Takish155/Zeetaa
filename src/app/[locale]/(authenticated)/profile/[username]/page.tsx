@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import React from "react";
 import { getServerSession } from "next-auth";
 import FriendActionButton from "./buttons/FriendActionButton";
@@ -12,19 +12,23 @@ import Image from "next/image";
 import noImage from "@/../public/images/noimage.jpg";
 import styles from "./profile-style.module.css";
 import CelebrationIcon from "@mui/icons-material/Celebration";
+import { redirect } from "next/navigation";
 
 const page = async ({
   params,
 }: {
   params: { username: string; locale: string };
 }) => {
-  const profileData = await showProfileAction(params.username);
+  const locale = await getLocale();
   const session = await getServerSession();
+  if (!session) redirect(`/${locale}/auth/signin`);
+
+  const profileData = await showProfileAction(params.username);
   const t = await getTranslations("ProfilePage");
 
   return (
     <main className={styles.profileMain}>
-      <section>
+      <section className={styles.profileSection}>
         <section className={styles.imageSection}>
           <Image
             src={noImage}
@@ -102,20 +106,26 @@ const page = async ({
       <article>
         <h2>{t("feedHeading")}</h2>
         <section>
-          {profileData?.userFeeds?.map((feed) => {
-            return (
-              <PostDataSection
-                key={feed.id}
-                feedId={feed.id}
-                feedAuthorUsername={feed.author.username!}
-                feedContent={feed.content}
-                feedCreatedDate={feed.createdAt}
-                likeCount={feed.likeCount}
-                viewerEmail={session?.user?.email}
-                authorEmail={feed.author.email!}
-              />
-            );
-          })}
+          {profileData.userFeeds?.length !== 0 ? (
+            profileData?.userFeeds?.map((feed) => {
+              return (
+                <PostDataSection
+                  key={feed.id}
+                  feedId={feed.id}
+                  feedAuthorUsername={feed.author.username!}
+                  feedContent={feed.content}
+                  feedCreatedDate={feed.createdAt}
+                  likeCount={feed.likeCount}
+                  viewerEmail={session?.user?.email}
+                  authorEmail={feed.author.email!}
+                />
+              );
+            })
+          ) : (
+            <p>
+              {params.username} {t("noFeedData")}
+            </p>
+          )}
         </section>
       </article>
     </main>

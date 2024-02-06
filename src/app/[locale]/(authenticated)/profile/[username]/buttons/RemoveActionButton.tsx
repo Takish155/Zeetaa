@@ -2,6 +2,7 @@
 
 import removeFromFriendListAction from "@/app/api/actions/user/friendActions/removeFromFriendListAction";
 import React from "react";
+import styles from "./../profile-style.module.css";
 
 const RemoveActionButton = ({
   removeText,
@@ -11,7 +12,10 @@ const RemoveActionButton = ({
   friendId: string;
 }) => {
   return (
-    <button onClick={() => removeFromFriendListAction(friendId)}>
+    <button
+      className={styles.declineButton}
+      onClick={() => removeFromFriendListAction(friendId)}
+    >
       {removeText}
     </button>
   );

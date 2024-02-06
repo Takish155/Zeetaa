@@ -5,7 +5,7 @@ import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import SignInForm from "@/_component/auth/SignInForm";
-import "../styles/index.css";
+import styles from "./index.module.css";
 
 const page = async () => {
   const session = await getServerSession();
@@ -16,7 +16,7 @@ const page = async () => {
   const message = await getMessages();
 
   return (
-    <main className="home-main">
+    <main className={styles.homeMain}>
       <section className="hero-section">
         <h1>{t("header")}</h1>
         <p>{t("description")}</p>

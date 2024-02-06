@@ -1,7 +1,10 @@
 import searchUserAction from "@/app/api/actions/user/seachUserAction";
 import { getTranslations } from "next-intl/server";
+import noimage from "@/../public/images/noimage.jpg";
 import Link from "next/link";
 import React from "react";
+import styles from "./search-page.module.css";
+import Image from "next/image";
 
 const page = async ({
   params,
@@ -12,28 +15,37 @@ const page = async ({
   const t = await getTranslations("SearchUserPage");
 
   return (
-    <main>
-      <article>
+    <main className={styles.main}>
+      <article className={styles.article}>
         {Array.isArray(data) ? (
-          data?.map((user) => (
-            <section key={user.id}>
-              <h2>{user.username}</h2>
-              <button>
-                <Link href={`/${params.locale}/profile/${user.username}/`}>
-                  {t("viewProfile")}
-                </Link>
-              </button>
-              {user.relationship !== "user" && (
-                <button>
-                  <Link href={`/${params.locale}/messages/${user.username}/`}>
-                    {t("message")}
-                  </Link>
-                </button>
-              )}
-            </section>
-          ))
+          data.length !== 0 ? (
+            data?.map((user) => (
+              <section key={user.id} className={styles.section}>
+                <Image alt="Image of the user" src={noimage} />
+                <p className={styles.profilename}>{user.username}</p>
+                <section className={styles.buttonContainer}>
+                  <button>
+                    <Link href={`/${params.locale}/profile/${user.username}/`}>
+                      {t("viewProfile")}
+                    </Link>
+                  </button>
+                  {user.relationship !== "user" && (
+                    <button>
+                      <Link
+                        href={`/${params.locale}/messages/${user.username}/`}
+                      >
+                        {t("message")}
+                      </Link>
+                    </button>
+                  )}
+                </section>
+              </section>
+            ))
+          ) : (
+            <p className={styles.errorText}>{t("noUserFoundError")}</p>
+          )
         ) : (
-          <p>{data?.message}</p>
+          <p className={styles.errorText}>{data?.message}</p>
         )}
       </article>
     </main>

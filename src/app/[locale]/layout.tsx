@@ -10,6 +10,7 @@ import Header from "@/_global_components/header/Header";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default function LocaleLayout({
   params: { locale: string };
 }) {
   return (
-    <html lang={locale} className={poppins.className}>
+    <html lang={locale} className={`${poppins.variable}`}>
       <body>
         <QueryProvider>
           <AuthProvider>

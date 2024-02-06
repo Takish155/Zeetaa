@@ -32,7 +32,7 @@ const page = async () => {
       <article>
         <h2>{t("feedSectionHeading")}</h2>
         <section>
-          {Array.isArray(feedData) &&
+          {Array.isArray(feedData) && feedData.length !== 0 ? (
             feedData.map((feed) => {
               return (
                 <PostDataSection
@@ -46,7 +46,10 @@ const page = async () => {
                   authorEmail={feed.author.email!}
                 />
               );
-            })}
+            })
+          ) : (
+            <p>{t("noFeedData")}</p>
+          )}
         </section>
       </article>
     </main>

@@ -25,22 +25,38 @@ const ChangePassword = ({
   if (toggle) {
     return (
       <form onSubmit={handleSubmit((data) => mutation.mutate(data))}>
-        {message.message && <p>{message.message}</p>}
-        <div>
+        {message.message && (
+          <p
+            className={
+              message.status === "error"
+                ? "server-message-error"
+                : "server-message-success"
+            }
+          >
+            {message.message}
+          </p>
+        )}
+        <div className="field-div">
           <label htmlFor="oldPassword">{oldPasswordLabel}</label>
           <input type="password" {...register("oldPassword")} />
-          {errors.oldPassword && <p>{t(errors.oldPassword.message)}</p>}
+          {errors.oldPassword && (
+            <p className="field-error">{t(errors.oldPassword.message)}</p>
+          )}
         </div>
-        <div>
+        <div className="field-div">
           <label htmlFor="newPassword">{newPasswordLabel}</label>
           <input type="password" {...register("newPassword")} />
-          {errors.newPassword && <p>{t(errors.newPassword.message)}</p>}
+          {errors.newPassword && (
+            <p className="field-error">{t(errors.newPassword.message)}</p>
+          )}
         </div>
-        <div>
+        <div className="field-div">
           <label htmlFor="confirmNewPassword">{confirmNewPasswordLabel}</label>
           <input type="password" {...register("confirmNewPassword")} />
           {errors.confirmNewPassword && (
-            <p>{t(errors.confirmNewPassword.message)}</p>
+            <p className="field-error">
+              {t(errors.confirmNewPassword.message)}
+            </p>
           )}
         </div>
         <button type="submit">{submitLabel}</button>

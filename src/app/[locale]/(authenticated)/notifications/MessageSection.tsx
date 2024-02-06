@@ -3,7 +3,6 @@ import React from "react";
 import noimage from "@/../public/images/noimage.jpg";
 import styles from "./notifications.module.css";
 import Image from "next/image";
-import { getLocale } from "next-intl/server";
 import formatTimeDifference from "@/_util/formatTimeDifference";
 
 const MessageSection = async ({
@@ -20,7 +19,7 @@ const MessageSection = async ({
   messageBack: string;
   date: Date;
 }) => {
-  const currentDate = await formatTimeDifference(date);
+  const currentDate = formatTimeDifference(date, locale);
 
   return (
     <section className={styles.notificationSections}>

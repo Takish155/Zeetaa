@@ -7,7 +7,10 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const schema = z.object({
-  bio: z.string().min(1).max(200),
+  bio: z
+    .string()
+    .min(1, { message: "minBioError" })
+    .max(200, { message: "maxBioError" }),
 });
 
 type FormValues = z.infer<typeof schema>;

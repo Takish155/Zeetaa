@@ -74,7 +74,8 @@
     "longMessageError": "Post cannot be longer than 1000 characters.",
     "userNotFoundError": "User not found.",
     "postSuccess": "Post successful!",
-    "loginToLikeText": "Login to like this post"
+    "loginToLikeText": "Login to like this post",
+    "noFeedData": "No feeds to show, be the first to post!"
   },
   "ProfilePage": {
     "joinedIn": "Joined on",
@@ -88,7 +89,8 @@
     "noSessionButton": "Sign In to interact with this user",
     "friendRequestAlreadySentError": "Friend request already sent, please wait for the user to accept your request.",
     "friendRequestSentSuccess": "Friend request sent!",
-    "acceptedFriendRequestSuccess": "Friend request accepted!"
+    "acceptedFriendRequestSuccess": "Friend request accepted!",
+    "noFeedData": "hasen't posted anything yet, either they are new or they have their posts set to private."
   },
   "NotificationPage": {
     "header": "Notifications",
@@ -125,7 +127,8 @@
   "SearchUserPage": {
     "header": "Search User",
     "viewProfile": "View Profile",
-    "message": "Message"
+    "message": "Message",
+    "noUserFoundError": "No user found with that username, please try another one."
   },
   "SettingsPage": {
     "header": "Settings",
@@ -203,6 +206,8 @@
     "noMessageError": "Your message cannot be empty.",
     "maxMessageError": "Your message cannot be longer than 150 characters.",
     "emptyPostMessageError": "Post cannot be empty.",
-    "maxPostMessageError": "Post cannot be longer than 1000 characters."
+    "maxPostMessageError": "Post cannot be longer than 1000 characters.",
+    "minBioError": "Bio must be more than 1 letters",
+    "maxBioError": "Bio must be less than 200 letters"
   }
 }

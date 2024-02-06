@@ -23,16 +23,30 @@ const ChangeUsername = ({
   if (toggle) {
     return (
       <form onSubmit={handleSubmit((data) => mutation.mutate(data))}>
-        {message.message && <p>{message.message}</p>}
-        <div>
+        {message.message && (
+          <p
+            className={
+              message.status === "error"
+                ? "server-message-error"
+                : "server-message-success"
+            }
+          >
+            {message.message}
+          </p>
+        )}
+        <div className="field-div">
           <label htmlFor="username">{usernameLabel}</label>
           <input type="text" {...register("newUsername")} />
-          {errors.newUsername && <p>{t(errors.newUsername.message)}</p>}
+          {errors.newUsername && (
+            <p className="field-error">{t(errors.newUsername.message)}</p>
+          )}
         </div>
-        <div>
+        <div className="field-div">
           <label htmlFor="password">{passwordLabel}</label>
           <input type="password" {...register("password")} />
-          {errors.password && <p>{t(errors.password.message)}</p>}
+          {errors.password && (
+            <p className="field-error">{t(errors.password.message)}</p>
+          )}
         </div>
         <button
           data-test="change-username-submit-button"

@@ -1,4 +1,4 @@
-.home-main {
+.homeMain {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,39 +6,40 @@
   gap: 2.5%;
   width: 100vw;
   height: 100vh;
+  padding-top: 3rem;
 }
 
-.home-main section {
+.homeMain section {
   width: 45%;
   min-width: 250px;
 }
 
-.home-main h1 {
+.homeMain h1 {
   color: black;
   font-size: 40px; /* Increased font size */
   margin-bottom: 20px; /* Increased margin-bottom for better spacing */
 }
 
-.home-main p {
+.homeMain p {
   color: #1c1e21;
   font-size: 20px; /* Increased font size */
   margin: 0;
 }
 
-.home-main h2 {
+.homeMain h2 {
   font-size: 28px; /* Increased font size */
   margin-bottom: 30px; /* Increased margin-bottom for better spacing */
   color: #1c1e21;
 }
 
-.home-main form {
+.homeMain form {
   background-color: #fff;
   border-radius: 3%; /* Increased border-radius for rounded corners */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Increased box-shadow for a more pronounced effect */
   padding: 5%; /* Increased padding for a larger box */
 }
 
-.home-main button {
+.homeMain button {
   padding: 10px 50px; /* Increased padding for a larger button */
   border: 0;
   border-radius: 12px; /* Increased border-radius for rounded corners */
@@ -49,22 +50,22 @@
   transition: all 0.5s;
 }
 
-.home-main button:active {
+.homeMain button:active {
   transition: all 0.25s;
   box-shadow: none;
   transform: scale(0.98);
 }
 
-.home-main button:last-child {
+.homeMain button:last-child {
   background-color: #000000;
 }
 
-.home-main button:last-child:hover {
+.homeMain button:last-child:hover {
   background-color: #ca4ca0;
 }
 
 @media screen and (max-width: 700px) {
-  .home-main section {
+  .homeMain section {
     width: 90%;
     margin-bottom: 3rem;
   }

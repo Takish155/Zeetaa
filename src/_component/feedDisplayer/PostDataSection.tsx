@@ -27,17 +27,19 @@ const PostDataSection = async ({
 }) => {
   const t = await getTranslations("HomePage");
   const locale = await getLocale();
-  const date = await formatTimeDifference(feedCreatedDate);
+  const date = formatTimeDifference(feedCreatedDate, locale);
 
   return (
     <section className={styles.postSection}>
-      <section className={styles.postSectionDiv}>
-        <Image src={noImage} alt="image of the user" width="50" height="50" />
-        <h3>
-          {feedAuthorUsername}{" "}
-          <span className={styles.timeStamp}>({date})</span>
-        </h3>
-      </section>
+      <Link href={`/${locale}/profile/${feedAuthorUsername}`} passHref>
+        <section className={styles.postSectionDiv}>
+          <Image src={noImage} alt="image of the user" width="50" height="50" />
+          <h3>
+            {feedAuthorUsername}{" "}
+            <span className={styles.timeStamp}>({date})</span>
+          </h3>
+        </section>
+      </Link>
       <p>{feedContent}</p>
       <section className={styles.buttonSection}>
         {viewerEmail ? (

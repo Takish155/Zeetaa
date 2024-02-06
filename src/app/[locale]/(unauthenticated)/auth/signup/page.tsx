@@ -5,7 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
 import React from "react";
-import "../../../../styles/signup.css";
+import styles from "./../auth.module.css";
 
 const page = async () => {
   const session = await getServerSession();
@@ -15,7 +15,7 @@ const page = async () => {
   const t = await getTranslations("Register");
   const message = await getMessages();
   return (
-    <main className="auth-main">
+    <main className={styles.authMain}>
       <section>
         <h2>{t("header")}</h2>
         <p>{t("description")}</p>

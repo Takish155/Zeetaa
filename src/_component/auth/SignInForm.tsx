@@ -49,9 +49,9 @@ const SignInForm = ({ locale }: { locale: string }) => {
         >
           {t("signIn")}
         </button>
-        <button>
-          <a href={`/${locale}/auth/signup`}>{t("signUp")}</a>
-        </button>
+        <a href={`/${locale}/auth/signup`}>
+          <button type="button">{t("signUp")}</button>
+        </a>
       </div>
     </form>
   );

@@ -15,6 +15,7 @@ const usePostForm = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm<PostFormSchemaType>({
     resolver: zodResolver(postFormSchema),
   });
@@ -24,6 +25,7 @@ const usePostForm = () => {
       await postAction(post, feedPrivacy),
     onSuccess: (res) => {
       setMessage(res);
+      reset();
     },
   });
 

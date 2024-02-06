@@ -48,7 +48,8 @@
   padding: 15px;
   margin-left: 5px;
   min-width: 250px;
-  width: 70%;
+  width: 95%;
+  max-width: 800px;
   margin-left: 1rem;
   margin-bottom: 2rem;
 }
@@ -112,16 +113,15 @@
     margin-left: 1rem;
   }
 
-  .homeMain .postSection {
+  .postSection {
     width: 90%;
   }
 
   .homeMain .postFormSection {
     width: 100%;
   }
-  .homeMain .postTextarea,
-  .homeMain .postOptions {
-    width: 90%;
+  .postTextarea,
+  .postOptions {
     margin: 0 auto;
     gap: 1rem;
   }

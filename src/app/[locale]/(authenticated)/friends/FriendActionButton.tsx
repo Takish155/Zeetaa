@@ -1,8 +1,9 @@
 "use client";
 
 import removeFromFriendListAction from "@/app/api/actions/user/friendActions/removeFromFriendListAction";
-import Link from "next/link";
 import React from "react";
+import styles from "./friends-page.module.css";
+import { useRouter } from "next/navigation";
 
 const FriendActionButton = ({
   visitProfileText,
@@ -19,18 +20,29 @@ const FriendActionButton = ({
   locale: string;
   username: string;
 }) => {
+  const router = useRouter();
+
   return (
-    <>
-      <button>
-        <Link href={`/${locale}/profile/${username}`}>{visitProfileText}</Link>
+    <div className={styles.buttonContainer}>
+      <button
+        className={styles.profilebutton}
+        onClick={() => router.push(`/${locale}/profile/${username}`)}
+      >
+        {visitProfileText}
       </button>
-      <button onClick={() => removeFromFriendListAction(friendListId)}>
+      <button
+        className={styles.messagebutton}
+        onClick={() => router.push(`/${locale}/messages/${username}`)}
+      >
+        {messageText}
+      </button>
+      <button
+        className={styles.removefriendbutton}
+        onClick={() => removeFromFriendListAction(friendListId)}
+      >
         {removeFriendText}
       </button>
-      <button>
-        <Link href={`/${locale}/messages/${username}`}>{messageText}</Link>
-      </button>
-    </>
+    </div>
   );
 };
 

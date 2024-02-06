@@ -23,16 +23,30 @@ const ChangeEmail = ({
   if (toggle) {
     return (
       <form onSubmit={handleSubmit((data) => mutation.mutate(data))}>
-        {message.message && <p>{message.message}</p>}
-        <div>
+        {message.message && (
+          <p
+            className={
+              message.status === "error"
+                ? "server-message-error"
+                : "server-message-success"
+            }
+          >
+            {message.message}
+          </p>
+        )}
+        <div className="field-div">
           <label htmlFor="email">{emailLabel}</label>
           <input type="email" {...register("newEmail")} />
-          {errors.newEmail && <p>{t(errors.newEmail.message)}</p>}
+          {errors.newEmail && (
+            <p className="field-error">{t(errors.newEmail.message)}</p>
+          )}
         </div>
-        <div>
+        <div className="field-div">
           <label htmlFor="password">{passwordLabel}</label>
           <input type="password" {...register("password")} />
-          {errors.password && <p>{t(errors.password.message)}</p>}
+          {errors.password && (
+            <p className="field-error">{t(errors.password.message)}</p>
+          )}
         </div>
         <button type="submit">{submitLabel}</button>
       </form>

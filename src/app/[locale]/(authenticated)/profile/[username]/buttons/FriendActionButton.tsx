@@ -12,7 +12,17 @@ const FriendActionButton = ({
   const { handleSubmit, message, loading } = useSendFriendRequest();
   return (
     <>
-      {message.message && <p>{message.message}</p>}
+      {message.message && (
+        <p
+          className={
+            message.status === "error"
+              ? "server-message-error"
+              : "server-message-success"
+          }
+        >
+          {message.message}
+        </p>
+      )}
       <button disabled={loading} onClick={() => handleSubmit(userId)}>
         {textButton}
       </button>

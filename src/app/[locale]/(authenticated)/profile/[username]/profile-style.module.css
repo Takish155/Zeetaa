@@ -1,5 +1,11 @@
+.profileSection {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
 .profileMain h2 {
   font-size: 2rem;
+  margin-left: 1rem;
 }
 
 .imageSection {
@@ -64,8 +70,7 @@
   border-radius: 5px;
 }
 
-.declineButton,
-.friendRequestionAction button:last-child {
+.declineButton {
   background-color: #c62828;
   color: #fff;
   border: none;

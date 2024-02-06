@@ -1,8 +1,6 @@
 import { getLocale } from "next-intl/server";
 
-const formatTimeDifference = async (date: Date): Promise<string> => {
-  const locale = await getLocale();
-
+const formatTimeDifference = (date: Date, locale: string): string => {
   const now = new Date();
   const rtf = new Intl.RelativeTimeFormat(locale, { numeric: "auto" });
 

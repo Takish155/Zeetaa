@@ -19,7 +19,7 @@ const FriendRequestSection = async ({
   dateSent: Date;
 }) => {
   const t = await getTranslations("NotificationPage");
-  const date = await formatTimeDifference(dateSent);
+  const date = formatTimeDifference(dateSent, locale);
 
   return (
     <section className={styles.notificationSections}>

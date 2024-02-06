@@ -1,0 +1,53 @@
+.personalDetails section {
+  flex: 1;
+  order: 1; /* Set the order to 1 to move it to the right */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 3rem;
+}
+
+.personalDetails section:nth-child(2) {
+  order: 2; /* Set the order to 2 to move it to the left */
+}
+
+.personalDetails h2 {
+  font-size: 2rem;
+  margin-bottom: 1.1rem;
+}
+
+.personalDetails h3 {
+  font-size: 1.45rem;
+  margin-bottom: 0.3rem;
+}
+
+.personalDetails p {
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+}
+
+.personalInfoText {
+  font-weight: 600;
+}
+
+.personalDetails button {
+  background-color: #010204;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.personalDetails button:hover {
+  background-color: #ca4ca0;
+}
+
+/* @media screen and (max-width: 600px) {
+  .personalDetails section {
+    margin-left: 0.5rem;
+  }
+} */

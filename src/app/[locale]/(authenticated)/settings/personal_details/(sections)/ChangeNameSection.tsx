@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import React from "react";
 import ChangeName from "../(changeForms)/ChangeNameForm";
+import styles from "./../personal-details.module.css";
 
 const ChangeNameSection = ({
   firstName,
@@ -14,8 +15,8 @@ const ChangeNameSection = ({
   return (
     <section>
       <h3>{t("nameHeading")}</h3>
+      <p className={styles.personalInfoText}>{firstName + " " + lastName}</p>
       <p>{t("nameDescription")}</p>
-      <p>{firstName + " " + lastName}</p>
       <ChangeName
         text={t("changeNameButton")}
         passwordLabel={t("passwordLabel")}

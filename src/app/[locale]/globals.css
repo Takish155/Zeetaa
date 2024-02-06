@@ -1,11 +1,17 @@
+:root {
+  --dangerous-color: #ba3333;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  line-break: loose;
 }
 
 html {
   font-family: var(--font-poppins), sans-serif;
+  min-height: 90vh;
 }
 
 .main-header {
@@ -111,10 +117,6 @@ a {
   max-width: 190px;
 }
 
-.field-div {
-  margin-bottom: 20px; /* Increased margin-bottom for better spacing */
-}
-
 label {
   display: block;
   margin-bottom: 10px; /* Increased margin-bottom for better spacing */
@@ -126,7 +128,6 @@ input {
   width: 100%;
   max-width: 400px;
   padding: 15px; /* Increased padding for better spacing */
-  box-sizing: border-box;
   border: 2px solid #ddd; /* Increased border size for better visibility */
   border-radius: 8px; /* Increased border-radius for rounded corners */
 }
@@ -135,8 +136,25 @@ input {
   margin-bottom: 3rem; /* Increased margin-bottom for better spacing */
 }
 
+.server-message-error {
+  color: var(--dangerous-color);
+  background-color: #f8d7da;
+  border-radius: 8px;
+  margin: 1rem auto;
+  padding: 0.7rem;
+  font-size: 1rem !important;
+}
+
+.server-message-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-radius: 8px;
+  margin: 1rem auto;
+  padding: 0.7rem;
+  font-size: 1rem !important;
+}
 .field-error {
-  color: red;
+  color: var(--dangerous-color) !important;
   font-size: 16px;
   margin-top: 10px;
 }
@@ -211,7 +229,7 @@ button:active {
     width: 100vw;
     position: fixed;
     display: flex;
-    top: 91%;
+    top: 92%;
     background-color: white;
   }
 
