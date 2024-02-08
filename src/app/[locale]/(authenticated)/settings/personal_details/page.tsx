@@ -14,7 +14,6 @@ import { redirect } from "next/navigation";
 const page = async () => {
   const locale = await getLocale();
   const session = await getServerSession();
-  if (!session) redirect(`/${locale}/auth/signin`);
 
   const userData = await getUserDataAction();
   const t = await getTranslations("PersonalDetailsPage");

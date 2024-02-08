@@ -10,8 +10,6 @@ const showChatHistoryAction = async (username: string, pageNumber: number) => {
   const locale = await getLocale();
 
   try {
-    if (!session) redirect(`/${locale}/auth/signin`);
-
     const user = await prisma?.user.findUnique({
       where: {
         email: session.user?.email!,

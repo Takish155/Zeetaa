@@ -9,7 +9,6 @@ const showPreviousMessage = async () => {
   const session = await getServerSession();
   const locale = await getLocale();
   try {
-    if (!session) redirect(`/${locale}/auth/signin`);
     const user = await prisma?.user.findUnique({
       where: {
         email: session.user?.email!,

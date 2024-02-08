@@ -19,7 +19,7 @@ const changeEmailAction = async (data: ChangeEmailSchemaType) => {
     if (!formData.success) throw new Error(formData.error.message);
 
     const session = await getServerSession();
-    if (!session) redirect(`/${locale}/auth/signin`);
+
     if (session.user?.email === data.newEmail)
       throw new Error(t("sameEmailError"));
 

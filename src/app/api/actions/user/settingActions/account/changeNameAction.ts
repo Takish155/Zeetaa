@@ -18,7 +18,6 @@ const changeNameAction = async (formData: ChangeNameSchemaType) => {
 
     const locale = await getLocale();
     const session = await getServerSession();
-    if (!session) redirect(`/${locale}/auth/signin`);
 
     const t = await getTranslations("PersonalDetailsPage");
 

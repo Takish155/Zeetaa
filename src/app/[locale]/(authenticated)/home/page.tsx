@@ -11,12 +11,9 @@ import styles from "./home-page.module.css";
 
 const page = async () => {
   const session = await getServerSession();
-  const locale = await getLocale();
-  if (!session) redirect(`/${locale}/auth/signin`);
   const t = await getTranslations("HomePage");
   const feedData = await feedLoaderAction();
   const messages = await getMessages();
-
   return (
     <main className={styles.homeMain}>
       <section>
@@ -42,7 +39,7 @@ const page = async () => {
                   feedContent={feed.content}
                   feedCreatedDate={feed.createdAt}
                   likeCount={feed.likeCount}
-                  viewerEmail={session.user?.email!}
+                  viewerEmail={session!.user?.email!}
                   authorEmail={feed.author.email!}
                 />
               );

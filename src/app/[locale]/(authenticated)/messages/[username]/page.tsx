@@ -14,7 +14,6 @@ import { redirect } from "next/navigation";
 const page = async ({ params }: { params: { username: string } }) => {
   const session = await getServerSession();
   const locale = await getLocale();
-  if (!session) redirect(`/${locale}/auth/signin`);
   const messages = await getMessages();
   const t = await getTranslations("MessagesPage");
   const chatChannel = await getChatChannelAction(params.username);

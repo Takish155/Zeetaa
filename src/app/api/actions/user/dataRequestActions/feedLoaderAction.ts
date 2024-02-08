@@ -10,8 +10,6 @@ const feedLoaderAction = async () => {
   const t = await getTranslations("HomePage");
 
   try {
-    if (!session) redirect(`/${locale}/auth/signin`);
-
     const user = await prisma?.user.findUnique({
       where: { email: session!.user!.email! },
       include: { posts: { include: { author: true } } },

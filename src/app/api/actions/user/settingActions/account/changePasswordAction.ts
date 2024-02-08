@@ -18,7 +18,6 @@ const changePasswordAction = async (formData: ChangePasswordSchemaType) => {
 
     const session = await getServerSession();
     const locale = await getLocale();
-    if (!session) redirect(`/${locale}/auth/signin`);
 
     const user = await prisma?.user.findUnique({
       where: { email: session.user?.email! },
