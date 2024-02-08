@@ -9,7 +9,7 @@
 }
 
 .chatSection {
-  height: 70vh;
+  height: 65vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column-reverse;
@@ -28,12 +28,17 @@
   width: 90%;
 }
 
+.intersectionObserver {
+  color: var(--primary-color) !important;
+}
+
 .chatContent {
   padding: 1rem;
   margin: 0 1rem;
   border-radius: 1rem;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
   line-break: anywhere;
+  background-color: var(--secondary-color);
 }
 
 .createdAt {
@@ -55,7 +60,7 @@
   width: 100%;
   bottom: 0;
   height: 10vh;
-  background-color: #fff;
+  background-color: var(--primary-color);
   position: sticky;
   padding-bottom: 1rem;
 }
@@ -74,6 +79,9 @@
   border: 2px solid var(--text-color); /* Increased border size for better visibility */
   border-radius: 8px; /* Increased border-radius for rounded corners */
   resize: none;
+  border: none;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
 }
 
 .chatMain button {

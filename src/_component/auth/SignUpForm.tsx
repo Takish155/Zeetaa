@@ -1,6 +1,7 @@
 "use client";
 
 import useRegisterForm from "@/_custon_hooks/authentication/useRegisterForm";
+import { CircularProgress } from "@mui/material";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -74,22 +75,25 @@ const SignUpForm = () => {
         )}
       </div>
       <div>
-        <button
-          type="submit"
-          data-test="submit"
-          disabled={status === "LOADING" ? true : false}
-          style={{
-            marginBottom: "1rem",
-          }}
-        >
-          {t("register")}
-        </button>
+        {status !== "LOADING" ? (
+          <button
+            type="submit"
+            data-test="submit"
+            style={{
+              marginBottom: "1rem",
+            }}
+          >
+            {t("register")}
+          </button>
+        ) : (
+          <CircularProgress />
+        )}
       </div>
-      <button type="button" onClick={() => router.push("/")}>
-        <Link passHref href="/">
+      <Link passHref href="/">
+        <button type="button" onClick={() => router.push("/")}>
           {t("signIn")}
-        </Link>
-      </button>
+        </button>
+      </Link>
     </form>
   );
 };

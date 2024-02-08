@@ -29,7 +29,6 @@ const page = async () => {
                 <section key={friend.id} className={styles.section}>
                   <Image alt="Image of the user" src={noimage} />
                   <p className={styles.profilename}>{friend.user2.username}</p>
-                  <p>{friend.createdAt.toLocaleDateString()}</p>
                   <FriendActionButton
                     friendListId={friend.id}
                     messageText={t("message")}

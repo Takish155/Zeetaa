@@ -3,6 +3,7 @@ import useFriendRequestActionButtons from "@/_custon_hooks/user_actions/useFrien
 import Link from "next/link";
 import React from "react";
 import styles from "./notifications.module.css";
+import { CircularProgress } from "@mui/material";
 
 const FriendRequestActionButtons = ({
   acceptText,
@@ -30,24 +31,34 @@ const FriendRequestActionButtons = ({
         <p>{message.message}</p>
       ) : (
         <>
-          <button
-            disabled={acceptFriendRequestMutation.isPending}
-            onClick={() =>
-              acceptFriendRequestMutation.mutate({
-                friendRequestId,
-              })
-            }
-          >
-            {acceptText}
-          </button>
-          <button
-            disabled={rejectFriendRequestMutation.isPending}
-            onClick={() =>
-              rejectFriendRequestMutation.mutate({ friendRequestId })
-            }
-          >
-            {rejectText}
-          </button>
+          {!rejectFriendRequestMutation.isPending &&
+          !acceptFriendRequestMutation.isPending ? (
+            <button
+              disabled={acceptFriendRequestMutation.isPending}
+              onClick={() =>
+                acceptFriendRequestMutation.mutate({
+                  friendRequestId,
+                })
+              }
+            >
+              {acceptText}
+            </button>
+          ) : (
+            <CircularProgress />
+          )}
+          {!acceptFriendRequestMutation.isPending &&
+          !rejectFriendRequestMutation.isPending ? (
+            <button
+              disabled={rejectFriendRequestMutation.isPending}
+              onClick={() =>
+                rejectFriendRequestMutation.mutate({ friendRequestId })
+              }
+            >
+              {rejectText}
+            </button>
+          ) : (
+            <CircularProgress />
+          )}
           <button>
             <Link passHref href={`/${locale}/profile/${username}`}>
               {viewProfileText}

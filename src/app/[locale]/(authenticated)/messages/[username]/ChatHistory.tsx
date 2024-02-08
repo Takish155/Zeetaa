@@ -6,6 +6,7 @@ import styles from "./chat-page.module.css";
 import React from "react";
 import formatTimeDifference from "@/_util/formatTimeDifference";
 import { useLocale } from "next-intl";
+import { CircularProgress } from "@mui/material";
 const ChatHistory = ({ username }: { username: string }) => {
   const locale = useLocale();
   const { isLoading, data, chatEndRef, ref } = useChatHistory(username);
@@ -13,7 +14,20 @@ const ChatHistory = ({ username }: { username: string }) => {
   if (!context) return null;
   const { messages } = context;
 
-  if (isLoading) return <section>Loading...</section>;
+  if (isLoading)
+    return (
+      <section
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "65vh",
+        }}
+      >
+        <CircularProgress />
+      </section>
+    );
   return (
     <section className={styles.chatSection}>
       <div ref={chatEndRef}></div>
@@ -53,7 +67,9 @@ const ChatHistory = ({ username }: { username: string }) => {
           );
         })
       )}
-      <div ref={ref}>a</div>
+      <div ref={ref} className={styles.intersectionObserver}>
+        a
+      </div>
     </section>
   );
 };

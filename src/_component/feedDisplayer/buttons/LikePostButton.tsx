@@ -4,6 +4,7 @@ import usePostButtonMutations from "@/_custon_hooks/user_actions/usePostButtonMu
 import React from "react";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import styles from "@/app/[locale]/(authenticated)/home/home-page.module.css";
+import { CircularProgress } from "@mui/material";
 
 const LikePostButton = ({
   postId,
@@ -14,18 +15,24 @@ const LikePostButton = ({
 }) => {
   const { likeMutation } = usePostButtonMutations();
   return (
-    <button
-      className={styles.likeButton}
-      id="button-likes"
-      onClick={() =>
-        likeMutation.mutate({
-          postId: postId.toString(),
-        })
-      }
-      disabled={likeMutation.isPending}
-    >
-      <ThumbUpIcon /> {likeCount}
-    </button>
+    <>
+      {!likeMutation.isPending ? (
+        <button
+          className={styles.likeButton}
+          id="button-likes"
+          onClick={() =>
+            likeMutation.mutate({
+              postId: postId.toString(),
+            })
+          }
+          disabled={likeMutation.isPending}
+        >
+          <ThumbUpIcon /> {likeCount}
+        </button>
+      ) : (
+        <CircularProgress />
+      )}
+    </>
   );
 };
 

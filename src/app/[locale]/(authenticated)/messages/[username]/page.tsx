@@ -25,11 +25,9 @@ const page = async ({ params }: { params: { username: string } }) => {
 
   return (
     <main className={styles.chatMain}>
-      <h2>
-        <Link passHref href={`/${locale}/profile/${params.username}`}>
-          {params.username}
-        </Link>
-      </h2>
+      <Link passHref href={`/${locale}/profile/${params.username}`}>
+        <h2>{params.username}</h2>
+      </Link>
       <NextIntlClientProvider messages={pick(messages, "FieldError")}>
         <OptimisticChatProvider
           chatChannel={chatChannel as string}

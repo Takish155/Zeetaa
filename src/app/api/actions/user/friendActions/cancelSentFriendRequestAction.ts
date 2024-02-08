@@ -31,6 +31,8 @@ const cancelSentFriendRequestAction = async (friendRequestId: string) => {
       throw new Error("You are not allowed to do this");
     }
 
+    await prisma.friendRequest.delete({ where: { id: friendRequestId } });
+
     revalidatePath(`/${locale}/profile/${friendRequest.receiver.username}`);
   } catch (err) {
     if (err instanceof Error) {

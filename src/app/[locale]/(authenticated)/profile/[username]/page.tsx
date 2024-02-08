@@ -13,6 +13,7 @@ import noImage from "@/../public/images/noimage.jpg";
 import styles from "./profile-style.module.css";
 import CelebrationIcon from "@mui/icons-material/Celebration";
 import { redirect } from "next/navigation";
+import formatTimeDifference from "@/_util/formatTimeDifference";
 
 const page = async ({
   params,
@@ -40,7 +41,8 @@ const page = async ({
             <p>{profileData.userInfo?.bio}</p>
             <p className={styles.joinText}>
               <CelebrationIcon />
-              {t("joinedIn")} {profileData?.userInfo?.createdAt.toDateString()}
+              {t("joinedIn")}{" "}
+              {formatTimeDifference(profileData?.userInfo?.createdAt!, locale)}
             </p>
           </div>
         </section>
@@ -48,14 +50,12 @@ const page = async ({
           {session?.user?.email !== profileData.userInfo?.email &&
             (profileData.relationship === "friend" ? (
               <>
-                <button>
-                  <Link
-                    passHref
-                    href={`/${params.locale}/messages/${params.username}`}
-                  >
-                    {t("message")}
-                  </Link>
-                </button>
+                <Link
+                  passHref
+                  href={`/${params.locale}/messages/${params.username}`}
+                >
+                  <button>{t("message")}</button>
+                </Link>
                 <RemoveActionButton
                   removeText={t("removeFriend")}
                   friendId={profileData.friendId!}
@@ -63,14 +63,12 @@ const page = async ({
               </>
             ) : profileData.relationship === "stranger" ? (
               <>
-                <button>
-                  <Link
-                    passHref
-                    href={`/${params.locale}/messages/${params.username}`}
-                  >
-                    {t("message")}
-                  </Link>
-                </button>
+                <Link
+                  passHref
+                  href={`/${params.locale}/messages/${params.username}`}
+                >
+                  <button>{t("message")}</button>
+                </Link>
                 <FriendActionButton
                   textButton={t("addFriend")}
                   userId={profileData.userInfo?.id!}
@@ -78,14 +76,12 @@ const page = async ({
               </>
             ) : profileData.relationship === "alreadySentFriendRequest" ? (
               <>
-                <button>
-                  <Link
-                    passHref
-                    href={`/${params.locale}/messages/${params.username}`}
-                  >
-                    {t("message")}
-                  </Link>
-                </button>
+                <Link
+                  passHref
+                  href={`/${params.locale}/messages/${params.username}`}
+                >
+                  <button>{t("message")}</button>
+                </Link>
                 <CancelSentFriendRequestActionButton
                   cancelButtonText={t("cancelFriendRequest")}
                   friendRequestId={profileData.friendRequestId!}
@@ -93,14 +89,12 @@ const page = async ({
               </>
             ) : profileData.relationship === "receivedFriendRequest" ? (
               <>
-                <button>
-                  <Link
-                    passHref
-                    href={`/${params.locale}/messages/${params.username}`}
-                  >
-                    {t("message")}
-                  </Link>
-                </button>
+                <Link
+                  passHref
+                  href={`/${params.locale}/messages/${params.username}`}
+                >
+                  <button>{t("message")}</button>
+                </Link>
                 <IncomingFriendRequestAction
                   friendRequestId={profileData.friendRequestId!}
                   acceptText={t("acceptFriendRequest")}

@@ -20,6 +20,10 @@ html {
   color: var(--text-color);
 }
 
+main {
+  min-height: 88vh;
+}
+
 .main-header {
   width: 100vw;
   display: flex;
@@ -90,6 +94,7 @@ html {
 
 .session-header nav ul li {
   border-radius: 10rem;
+  margin-bottom: 0.5rem;
 }
 
 .session-header nav ul li a:link {
@@ -261,4 +266,23 @@ button:active {
   .session-header nav ul li {
     border-radius: 0%;
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--primary-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

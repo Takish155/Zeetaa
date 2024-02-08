@@ -3,6 +3,7 @@ import usePostForm from "@/_custon_hooks/user_actions/usePostForm";
 import { useTranslations } from "next-intl";
 import React from "react";
 import styles from "./home-page.module.css";
+import { CircularProgress } from "@mui/material";
 
 const PostForm = ({
   submitText,
@@ -32,9 +33,13 @@ const PostForm = ({
             <option value="public">{publicText}</option>
             <option value="private">{privateText}</option>
           </select>
-          <button type="submit" disabled={postMutation.isPending}>
-            {submitText}
-          </button>
+          {!postMutation.isPending ? (
+            <button type="submit" disabled={postMutation.isPending}>
+              {submitText}
+            </button>
+          ) : (
+            <CircularProgress />
+          )}
         </section>
       </form>
     </section>

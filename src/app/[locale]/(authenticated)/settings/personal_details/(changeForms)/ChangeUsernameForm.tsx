@@ -1,6 +1,7 @@
 "use client";
 
 import useChangeUsername from "@/_custon_hooks/settings_actions/useChangeUsername";
+import { CircularProgress } from "@mui/material";
 import { useTranslations } from "next-intl";
 import React, { useState, useTransition } from "react";
 
@@ -48,13 +49,17 @@ const ChangeUsername = ({
             <p className="field-error">{t(errors.password.message)}</p>
           )}
         </div>
-        <button
-          data-test="change-username-submit-button"
-          type="submit"
-          disabled={mutation.isPending}
-        >
-          {submitLabel}
-        </button>
+        {!mutation.isPending ? (
+          <button
+            data-test="change-username-submit-button"
+            type="submit"
+            disabled={mutation.isPending}
+          >
+            {submitLabel}
+          </button>
+        ) : (
+          <CircularProgress />
+        )}
       </form>
     );
   }

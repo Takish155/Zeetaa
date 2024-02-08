@@ -29,22 +29,16 @@ const page = async ({
                 <Image alt="Image of the user" src={noimage} />
                 <p className={styles.profilename}>{user.username}</p>
                 <section className={styles.buttonContainer}>
-                  <button>
-                    <Link
-                      passHref
-                      href={`/${params.locale}/profile/${user.username}/`}
-                    >
-                      {t("viewProfile")}
-                    </Link>
-                  </button>
+                  <Link
+                    passHref
+                    href={`/${params.locale}/profile/${user.username}/`}
+                  >
+                    <button>{t("viewProfile")}</button>
+                  </Link>
                   {user.relationship !== "user" && (
-                    <button>
-                      <Link
-                        href={`/${params.locale}/messages/${user.username}/`}
-                      >
-                        {t("message")}
-                      </Link>
-                    </button>
+                    <Link href={`/${params.locale}/messages/${user.username}/`}>
+                      <button>{t("message")}</button>
+                    </Link>
                   )}
                 </section>
               </section>

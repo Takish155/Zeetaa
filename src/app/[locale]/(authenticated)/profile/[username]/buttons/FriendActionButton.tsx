@@ -1,6 +1,7 @@
 "use client";
 
 import useSendFriendRequest from "@/_custon_hooks/user_actions/useSendFriendRequest";
+import { CircularProgress } from "@mui/material";
 
 const FriendActionButton = ({
   textButton,
@@ -12,20 +13,13 @@ const FriendActionButton = ({
   const { handleSubmit, message, loading } = useSendFriendRequest();
   return (
     <>
-      {message.message && (
-        <p
-          className={
-            message.status === "error"
-              ? "server-message-error"
-              : "server-message-success"
-          }
-        >
-          {message.message}
-        </p>
+      {!loading ? (
+        <button disabled={loading} onClick={() => handleSubmit(userId)}>
+          {textButton}
+        </button>
+      ) : (
+        <CircularProgress />
       )}
-      <button disabled={loading} onClick={() => handleSubmit(userId)}>
-        {textButton}
-      </button>
     </>
   );
 };

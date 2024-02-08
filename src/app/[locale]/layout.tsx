@@ -6,6 +6,7 @@ import QueryProvider from "@/_context/QueryProvider";
 import AuthProvider from "@/_context/AuthProvider";
 import HamburgerHeader from "@/_global_components/header/HamburgerHeader";
 import Header from "@/_global_components/header/Header";
+import { Footer } from "@/_global_components/footer/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function LocaleLayout({
               <HamburgerHeader />
               {children}
             </div>
+            <Footer />
           </AuthProvider>
         </QueryProvider>
       </body>

@@ -6,6 +6,7 @@ import Link from "next/link";
 import SearchInput from "./SearchInput";
 import { getServerSession } from "next-auth";
 import { getLocale, getTranslations } from "next-intl/server";
+import { CircularProgress } from "@mui/material";
 
 const Header = async () => {
   const t = await getTranslations("Header");
@@ -20,7 +21,7 @@ const Header = async () => {
         </Link>
       </h1>
       {session && (
-        <Suspense fallback="loading">
+        <Suspense fallback={<CircularProgress />}>
           <SearchInput placeholder={t("search")} locale={locale} />
         </Suspense>
       )}

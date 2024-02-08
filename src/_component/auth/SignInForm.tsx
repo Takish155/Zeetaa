@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import React from "react";
 import useLoginForm from "../../_custon_hooks/authentication/useLoginForm";
 import styles from "./../../app/[locale]/(unauthenticated)/auth/auth.module.css";
+import { CircularProgress } from "@mui/material";
 
 const SignInForm = ({ locale }: { locale: string }) => {
   const t = useTranslations("Login");
@@ -43,14 +44,18 @@ const SignInForm = ({ locale }: { locale: string }) => {
         )}
       </div>
       <div>
-        <button
-          style={{ marginRight: "1rem", marginBottom: "1rem" }}
-          type="submit"
-          data-test="submit"
-          disabled={loginMutation.isPending}
-        >
-          {t("signIn")}
-        </button>
+        {!loginMutation.isPending ? (
+          <button
+            style={{ marginRight: "1rem", marginBottom: "1rem" }}
+            type="submit"
+            data-test="submit"
+            disabled={loginMutation.isPending}
+          >
+            {t("signIn")}
+          </button>
+        ) : (
+          <CircularProgress />
+        )}
         <a href={`/${locale}/auth/signup`}>
           <button type="button">{t("signUp")}</button>
         </a>
