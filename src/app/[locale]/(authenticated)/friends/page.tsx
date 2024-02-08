@@ -5,11 +5,16 @@ import showFriendList from "@/app/api/actions/user/friendActions/showFriendList"
 import styles from "./friends-page.module.css";
 import Image from "next/image";
 import noimage from "@/../public/images/noimage.jpg";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 const page = async () => {
+  const locale = await getLocale();
+  const session = await getServerSession();
+  if (!session) redirect(`/${locale}/signin`);
   const friendData = await showFriendList();
   const t = await getTranslations("FriendsPage");
-  const locale = await getLocale();
+
   return (
     <main className={styles.main}>
       <h2>{t("header")}</h2>

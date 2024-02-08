@@ -12,8 +12,9 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 const page = async ({ params }: { params: { username: string } }) => {
-  const session = await getServerSession();
   const locale = await getLocale();
+  const session = await getServerSession();
+  if (!session) redirect(`/${locale}/signin`);
   const messages = await getMessages();
   const t = await getTranslations("MessagesPage");
   const chatChannel = await getChatChannelAction(params.username);

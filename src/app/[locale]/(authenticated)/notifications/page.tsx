@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import React from "react";
 import FriendRequestSection from "./FriendRequestSection";
 import MessageSection from "./MessageSection";
@@ -7,7 +7,9 @@ import showNotificationAction from "@/app/api/actions/user/friendActions/showNot
 import { redirect } from "next/navigation";
 
 const page = async ({ params }: { params: { locale: string } }) => {
+  const locale = await getLocale();
   const session = await getServerSession();
+  if (!session) redirect(`/${locale}/signin`);
   const t = await getTranslations("NotificationPage");
   const data = await showNotificationAction("all");
 
@@ -19,32 +21,38 @@ const page = async ({ params }: { params: { locale: string } }) => {
     <>
       <article>
         {Array.isArray(data) ? (
-         data.length !== 0 ? data?.map((notification) => {
-            if (notification.type === "friendrequest") {
+          data.length !== 0 ? (
+            data?.map((notification) => {
+              if (notification.type === "friendrequest") {
+                return (
+                  <>
+                    <FriendRequestSection
+                      dateSent={notification.createdAt}
+                      locale={params.locale}
+                      notificationId={notification.id}
+                      senderUsername={notification.senderUsername!}
+                      key={notification.id}
+                    />
+                  </>
+                );
+              }
               return (
-                <>
-                  <FriendRequestSection
-                    dateSent={notification.createdAt}
-                    locale={params.locale}
-                    notificationId={notification.id}
-                    senderUsername={notification.senderUsername!}
-                    key={notification.id}
-                  />
-                </>
+                <MessageSection
+                  content={
+                    "content" in notification ? notification.content : ""
+                  }
+                  date={notification.createdAt}
+                  locale={params.locale}
+                  messageBack={t("messageBack")}
+                  notificationId={notification.id}
+                  senderUsername={notification.senderUsername!}
+                  key={notification.id}
+                />
               );
-            }
-            return (
-              <MessageSection
-                content={"content" in notification ? notification.content : ""}
-                date={notification.createdAt}
-                locale={params.locale}
-                messageBack={t("messageBack")}
-                notificationId={notification.id}
-                senderUsername={notification.senderUsername!}
-                key={notification.id}
-              />
-            );
-          }) : <p>{t("noNotificationsYet")}</p>
+            })
+          ) : (
+            <p>{t("noNotificationsYet")}</p>
+          )
         ) : (
           <p>{data?.message}</p>
         )}

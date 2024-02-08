@@ -10,7 +10,9 @@ import { pick } from "lodash";
 import styles from "./home-page.module.css";
 
 const page = async () => {
+  const locale = await getLocale();
   const session = await getServerSession();
+  if (!session) redirect(`/${locale}/signin`);
   const t = await getTranslations("HomePage");
   const feedData = await feedLoaderAction();
   const messages = await getMessages();

@@ -1,9 +1,14 @@
 import React from "react";
 import MessageSection from "../MessageSection";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import showNotificationAction from "@/app/api/actions/user/friendActions/showNotificationAction";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 const page = async ({ params }: { params: { locale: string } }) => {
+  const locale = await getLocale();
+  const session = await getServerSession();
+  if (!session) redirect(`/${locale}/signin`);
   const data = await showNotificationAction("messages");
   const t = await getTranslations("NotificationPage");
   return (

@@ -11,8 +11,6 @@ const page = async () => {
   const session = await getServerSession();
   const locale = await getLocale();
   if (session) redirect(`/${locale}/home`);
-
-  const t = await getTranslations("Login");
   const message = await getMessages();
 
   return (

@@ -21,7 +21,7 @@ const page = async ({
 }) => {
   const locale = await getLocale();
   const session = await getServerSession();
-
+  if (!session) redirect(`/${locale}/signin`);
   const profileData = await showProfileAction(params.username);
   const t = await getTranslations("ProfilePage");
 

@@ -1,16 +1,21 @@
 import searchUserAction from "@/app/api/actions/user/seachUserAction";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import noimage from "@/../public/images/noimage.jpg";
 import Link from "next/link";
 import React from "react";
 import styles from "./search-page.module.css";
 import Image from "next/image";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 const page = async ({
   params,
 }: {
   params: { locale: string; username: string };
 }) => {
+  const locale = await getLocale();
+  const session = await getServerSession();
+  if (!session) redirect(`/${locale}/signin`);
   const data = await searchUserAction(params.username);
   const t = await getTranslations("SearchUserPage");
 
