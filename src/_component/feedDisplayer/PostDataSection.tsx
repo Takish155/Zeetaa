@@ -31,7 +31,7 @@ const PostDataSection = async ({
 
   return (
     <section className={styles.postSection}>
-      <Link passHref href={`/${locale}/profile/${feedAuthorUsername}`} passHref>
+      <Link passHref href={`/${locale}/profile/${feedAuthorUsername}`}>
         <section className={styles.postSectionDiv}>
           <Image src={noImage} alt="image of the user" width="50" height="50" />
           <h3>
