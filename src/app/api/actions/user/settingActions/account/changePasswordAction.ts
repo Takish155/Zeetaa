@@ -20,7 +20,7 @@ const changePasswordAction = async (formData: ChangePasswordSchemaType) => {
     const locale = await getLocale();
 
     const user = await prisma?.user.findUnique({
-      where: { email: session.user?.email! },
+      where: { email: session!.user?.email! },
     });
     if (!user) throw new Error("User not found");
 

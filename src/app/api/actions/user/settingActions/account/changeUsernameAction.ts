@@ -23,9 +23,9 @@ const changeUsernameAction = async (data: ChangeUsernameSchemaType) => {
     if (!session)
       throw new Error("You must be logged in to change your username");
 
-    console.log(session.user?.email!);
+    console.log(session!.user?.email!);
     const user = await prisma?.user.findUnique({
-      where: { email: session.user?.email! },
+      where: { email: session!.user?.email! },
     });
     if (!user) throw new Error("User not found");
 

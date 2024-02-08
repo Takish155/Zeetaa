@@ -11,7 +11,7 @@ const updateBioAction = async (bio: string) => {
     if (!session) throw new Error("Unauthorized");
 
     const user = await prisma?.user.findUnique({
-      where: { email: session.user?.email! },
+      where: { email: session!.user?.email! },
     });
 
     if (!user) throw new Error("Unauthorized");

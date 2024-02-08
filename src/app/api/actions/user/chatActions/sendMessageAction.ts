@@ -10,7 +10,7 @@ const sendMessageAction = async (username: string, message: string) => {
     if (!session) throw new Error("Not authenticated");
     const user = await prisma?.user.findUnique({
       where: {
-        email: session.user?.email!,
+        email: session!.user?.email!,
       },
     });
     if (!user) throw new Error("User not found");

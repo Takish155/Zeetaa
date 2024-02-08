@@ -15,7 +15,7 @@ const removeFromFriendListAction = async (friendListId: string) => {
 
     const user = await prisma?.user.findUnique({
       where: {
-        email: session.user?.email!,
+        email: session!.user?.email!,
       },
       include: { sentFriendRequests: true, receivedFriendRequests: true },
     });

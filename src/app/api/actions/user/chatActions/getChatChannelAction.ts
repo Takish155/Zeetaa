@@ -10,7 +10,7 @@ const getChatChannelAction = async (username: string) => {
 
     const userAndReceiver = await prisma?.user.findUnique({
       where: {
-        email: session.user?.email!,
+        email: session!.user?.email!,
       },
     });
     if (!userAndReceiver) throw new Error("User not found");

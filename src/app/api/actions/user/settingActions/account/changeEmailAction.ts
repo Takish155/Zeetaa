@@ -20,11 +20,11 @@ const changeEmailAction = async (data: ChangeEmailSchemaType) => {
 
     const session = await getServerSession();
 
-    if (session.user?.email === data.newEmail)
+    if (session!.user?.email === data.newEmail)
       throw new Error(t("sameEmailError"));
 
     const user = await prisma?.user.findUnique({
-      where: { email: session.user?.email! },
+      where: { email: session!.user?.email! },
     });
     if (!user) throw new Error("User not found");
 

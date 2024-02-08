@@ -12,7 +12,7 @@ const showChatHistoryAction = async (username: string, pageNumber: number) => {
   try {
     const user = await prisma?.user.findUnique({
       where: {
-        email: session.user?.email!,
+        email: session!.user?.email!,
       },
     });
     if (!user) throw new Error("User not found");

@@ -23,7 +23,7 @@ const changeNameAction = async (formData: ChangeNameSchemaType) => {
 
     const user = await prisma?.user.findUnique({
       where: {
-        email: session.user?.email!,
+        email: session!.user?.email!,
       },
     });
     if (!user) throw new Error("User not found");
@@ -41,7 +41,7 @@ const changeNameAction = async (formData: ChangeNameSchemaType) => {
 
     await prisma?.user.update({
       where: {
-        email: session.user?.email!,
+        email: session!.user?.email!,
       },
       data: {
         firstName: formData.firstName,
