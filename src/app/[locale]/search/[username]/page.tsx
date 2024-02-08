@@ -15,7 +15,7 @@ const page = async ({
 }) => {
   const locale = await getLocale();
   const session = await getServerSession();
-  if (!session) redirect(`/${locale}/signin`);
+  if (!session) redirect(`/${locale}/auth/signin`);
   const data = await searchUserAction(params.username);
   const t = await getTranslations("SearchUserPage");
 

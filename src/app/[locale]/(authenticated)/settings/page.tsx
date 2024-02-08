@@ -12,7 +12,7 @@ import { redirect } from "next/navigation";
 const page = async () => {
   const locale = await getLocale();
   const session = await getServerSession();
-
+  if (!session) redirect(`/${locale}/auth/signin`);
   const t = await getTranslations("SettingsPage");
   const messages = await getMessages();
   return (

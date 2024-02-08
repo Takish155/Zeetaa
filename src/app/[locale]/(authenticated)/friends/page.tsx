@@ -11,7 +11,7 @@ import { redirect } from "next/navigation";
 const page = async () => {
   const locale = await getLocale();
   const session = await getServerSession();
-  if (!session) redirect(`/${locale}/signin`);
+  if (!session) redirect(`/${locale}/auth/signin`);
   const friendData = await showFriendList();
   const t = await getTranslations("FriendsPage");
 
