@@ -33,6 +33,7 @@ const useRegisterForm = () => {
       });
       return;
     }
+    window.scrollTo(0, 0);
     setStatus("IDLE");
   };
 
