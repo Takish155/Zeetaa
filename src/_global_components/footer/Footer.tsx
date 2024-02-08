@@ -13,21 +13,21 @@ export const Footer = () => {
   if (!pathName.includes(`/${path.locale}/messages`)) {
     return (
       <footer className={styles.footer}>
-        <section>
+        <section className={styles.footerSection}>
           <p>Copyright © 2023. All Rights Reserved.</p>
-        </section>
-        <section>
-          <h3>Language</h3>
-          <select
-            defaultValue={path.locale}
-            onChange={(e) => {
-              if (path.locale === e.target.value) return;
-              router.push("/" + e.target.value);
-            }}
-          >
-            <option value={"en"}>English</option>
-            <option value={"ja"}>Japanese</option>
-          </select>
+          <section>
+            <h3>Language | 言語</h3>
+            <select
+              defaultValue={path.locale}
+              onChange={(e) => {
+                if (path.locale === e.target.value) return;
+                router.push("/" + e.target.value);
+              }}
+            >
+              <option value={"en"}>English</option>
+              <option value={"ja"}>Japanese</option>
+            </select>
+          </section>
         </section>
       </footer>
     );
