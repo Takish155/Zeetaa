@@ -1,6 +1,6 @@
 .notificationMain {
   display: flex;
-  padding-top: 3rem;
+  padding-top: 2rem;
   gap: 2%;
 }
 
@@ -22,6 +22,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 300px;
+  background-color: var(--secondary-color);
 }
 
 .notificationNav ul {
@@ -50,7 +51,7 @@
 }
 
 .notificationNav ul li:hover {
-  background-color: #f5f5f5;
+  background-color: grey;
 }
 
 .notificationMain article {
@@ -60,6 +61,7 @@
 .notificationSections {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--secondary-color);
   width: 90%;
   margin: 3rem auto;
   padding: 1rem;
@@ -67,7 +69,7 @@
 
 .notificationSections img {
   border-radius: 50%;
-  border: 2px solid #1f1f1f;
+  border: 2px solid var(--text-color);
 }
 
 .friendActionButtonContainer {
@@ -106,8 +108,8 @@
 .buttonContainer button,
 .friendActionButtonContainer button:nth-child(3) {
   background-color: inherit;
-  color: #1f1f1f;
-  border: #1f1f1f 1px solid;
+  color: var(--text-color);
+  border: var(--text-color) 1px solid;
 }
 
 @media screen and (max-width: 900px) {

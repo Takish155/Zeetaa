@@ -1,5 +1,8 @@
+.homeMain {
+  padding-top: 2rem;
+}
+
 .postFormSection {
-  margin-top: 5rem;
   width: 90%;
 }
 
@@ -8,12 +11,15 @@
 }
 
 .postFormSection textarea {
-  width: 70%;
+  width: 95% !important;
+  max-width: 800px;
   resize: none;
   font-size: 1rem;
   height: 15vh;
   padding: 1rem; /* Increased padding for better spacing */
-  border: 2px solid #ddd; /* Increased border size for better visibility */
+  border: 2px solid var(--primary-color); /* Increased border size for better visibility */
+  background-color: var(--secondary-color);
+  color: var(--text-color);
   border-radius: 8px; /* Increased border-radius for rounded corners */
 }
 
@@ -25,14 +31,18 @@
 .postFormSection .postOptions {
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  width: 95%;
+  flex-wrap: wrap;
+  max-width: 800px;
 }
 
 .postFormSection select {
   padding: 15px; /* Increased padding for better spacing */
-  border: 2px solid #ddd; /* Increased border size for better visibility */
+  border: none; /* Increased border size for better visibility */
+  background-color: var(--secondary-color);
+  color: var(--text-color);
   border-radius: 8px; /* Increased border-radius for rounded corners */
-  width: 200px;
+  min-width: 250px;
 }
 
 .homeMain h2 {
@@ -44,6 +54,7 @@
 .postSection {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--secondary-color);
   text-align: left;
   padding: 15px;
   margin-left: 5px;
@@ -63,7 +74,7 @@
 
 .postSectionDiv img {
   border-radius: 50%;
-  border: 2px solid #1f1f1f;
+  border: 2px solid var(--text-color);
 }
 
 .buttonSection {
@@ -89,11 +100,10 @@
 .likeButton {
   display: flex;
   align-items: center;
-  border: 1px solid #1f1f1f;
+  border: 1px solid var(--text-color);
   padding: 5px 25px;
   cursor: pointer;
   background-color: transparent;
-  color: #1f1f1f;
   gap: 0.5rem;
 }
 
@@ -128,5 +138,11 @@
 
   .homeMain textarea {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .postFormSection textarea {
+    margin-left: 0.5rem;
   }
 }

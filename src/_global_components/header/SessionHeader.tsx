@@ -1,59 +1,80 @@
+"use client";
+
 import React from "react";
-import SignOutButton from "./SignOutButton";
 import Link from "next/link";
-import { getTranslations } from "next-intl/server";
-import getUserDataAction from "@/app/api/actions/user/dataRequestActions/getUserDataAction";
 import HomeIcon from "@mui/icons-material/Home";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import PeopleIcon from "@mui/icons-material/People";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import SettingsIcon from "@mui/icons-material/Settings";
+import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
-const iconStyles: React.CSSProperties = {
-  marginRight: "0.6rem",
-  width: "1.5rem",
-  height: "1.5rem",
-};
+const SessionHeader = ({
+  locale,
+  username,
+}: {
+  locale: string;
+  username: string;
+}) => {
+  const t = useTranslations("Header");
+  const path = usePathname();
 
-const SessionHeader = async ({ locale }: { locale: string }) => {
-  const t = await getTranslations("Header");
-  const userData = await getUserDataAction();
   return (
     <>
-      <li>
-        <Link href={`/${locale}/home`}>
+      <li
+        style={{
+          backgroundColor: path.includes(`/${locale}/home`) ? "gray" : "",
+        }}
+      >
+        <Link passHref href={`/${locale}/home`}>
           <HomeIcon />
           <p>{t("home")}</p>
         </Link>
       </li>
-      <li>
-        <Link href={`/${locale}/notifications`}>
+      <li
+        style={{
+          backgroundColor: path.includes(`/${locale}/notifications`)
+            ? "gray"
+            : "",
+        }}
+      >
+        <Link passHref href={`/${locale}/notifications`}>
           <NotificationsIcon />
           <p>{t("notifications")}</p>
         </Link>
       </li>
-      <li>
-        <Link href={`/${locale}/friends`}>
+      <li
+        style={{
+          backgroundColor: path.includes(`/${locale}/friends`) ? "gray" : "",
+        }}
+      >
+        <Link passHref href={`/${locale}/friends`}>
           <PeopleIcon />
           <p>{t("friends")}</p>
         </Link>
       </li>
-      {"username" in userData && (
-        <li>
-          <Link href={`/${locale}/profile/${userData?.username}`}>
-            <AccountBoxIcon />
-            <p>{t("profile")}</p>
-          </Link>
-        </li>
-      )}
+      <li
+        style={{
+          backgroundColor: path.includes(`/${locale}/profile`) ? "gray" : "",
+        }}
+      >
+        <Link passHref href={`/${locale}/profile/${username}`}>
+          <AccountBoxIcon />
+          <p>{t("profile")}</p>
+        </Link>
+      </li>
 
-      <li>
-        <Link href={`/${locale}/settings`} data-test="nav-settings">
+      <li
+        style={{
+          backgroundColor: path.includes(`/${locale}/settings`) ? "gray" : "",
+        }}
+      >
+        <Link passHref href={`/${locale}/settings`} data-test="nav-settings">
           <SettingsIcon />
           <p>{t("settings")}</p>
         </Link>
       </li>
-      <SignOutButton />
     </>
   );
 };

@@ -13,24 +13,30 @@ const page = async () => {
   return (
     <main className={styles.main}>
       <h2>{t("header")}</h2>
+      {friendData?.sentFriendRequests?.length === 0 &&
+        friendData?.receivedFriendRequests?.length === 0 && (
+          <p>{t("noFriendsYet")}</p>
+        )}
       <article className={styles.article}>
-        {friendData?.sentFriendRequests!.map((friend) => {
-          return (
-            <section key={friend.id} className={styles.section}>
-              <Image alt="Image of the user" src={noimage} />
-              <p className={styles.profilename}>{friend.user2.username}</p>
-              <p>{friend.createdAt.toLocaleDateString()}</p>
-              <FriendActionButton
-                friendListId={friend.id}
-                messageText={t("message")}
-                locale={locale}
-                removeFriendText={t("removeFriend")}
-                visitProfileText={t("visitProfile")}
-                username={friend.user2.username!}
-              />
-            </section>
-          );
-        })}
+        {friendData.sentFriendRequests?.length !== 0
+          ? friendData?.sentFriendRequests!.map((friend) => {
+              return (
+                <section key={friend.id} className={styles.section}>
+                  <Image alt="Image of the user" src={noimage} />
+                  <p className={styles.profilename}>{friend.user2.username}</p>
+                  <p>{friend.createdAt.toLocaleDateString()}</p>
+                  <FriendActionButton
+                    friendListId={friend.id}
+                    messageText={t("message")}
+                    locale={locale}
+                    removeFriendText={t("removeFriend")}
+                    visitProfileText={t("visitProfile")}
+                    username={friend.user2.username!}
+                  />
+                </section>
+              );
+            })
+          : ""}
         {friendData?.receivedFriendRequests!.map((friend) => {
           // receivedFriendRequests's friend is user1
           return (

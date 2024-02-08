@@ -25,7 +25,10 @@ const page = async ({
                 <p className={styles.profilename}>{user.username}</p>
                 <section className={styles.buttonContainer}>
                   <button>
-                    <Link href={`/${params.locale}/profile/${user.username}/`}>
+                    <Link
+                      passHref
+                      href={`/${params.locale}/profile/${user.username}/`}
+                    >
                       {t("viewProfile")}
                     </Link>
                   </button>

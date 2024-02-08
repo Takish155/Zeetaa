@@ -15,7 +15,7 @@ const Header = async () => {
   return (
     <header className="main-header">
       <h1>
-        <Link href="/">
+        <Link passHref href="/">
           <Image src={logo} alt="logo of zeetaa" />
         </Link>
       </h1>

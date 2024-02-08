@@ -49,7 +49,7 @@ const FriendRequestActionButtons = ({
             {rejectText}
           </button>
           <button>
-            <Link href={`/${locale}/profile/${username}`}>
+            <Link passHref href={`/${locale}/profile/${username}`}>
               {viewProfileText}
             </Link>
           </button>

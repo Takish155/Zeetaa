@@ -1,5 +1,5 @@
 .chatMain {
-  padding-top: 4rem;
+  padding-top: 2rem;
   overflow: hidden;
 }
 
@@ -71,7 +71,7 @@
 .chatMain textarea {
   width: 70%;
   padding: 15px; /* Increased padding for better spacing */
-  border: 2px solid #ddd; /* Increased border size for better visibility */
+  border: 2px solid var(--text-color); /* Increased border size for better visibility */
   border-radius: 8px; /* Increased border-radius for rounded corners */
   resize: none;
 }

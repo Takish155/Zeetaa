@@ -31,7 +31,7 @@ const MessageSection = async ({
       <p className={styles.sentDate}>{currentDate}</p>
       <div className={styles.buttonContainer}>
         <button>
-          <Link href={`/${locale}/messages/${senderUsername}`}>
+          <Link passHref href={`/${locale}/messages/${senderUsername}`}>
             {messageBack}
           </Link>
         </button>

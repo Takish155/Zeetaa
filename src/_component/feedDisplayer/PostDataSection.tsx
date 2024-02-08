@@ -31,7 +31,7 @@ const PostDataSection = async ({
 
   return (
     <section className={styles.postSection}>
-      <Link href={`/${locale}/profile/${feedAuthorUsername}`} passHref>
+      <Link passHref href={`/${locale}/profile/${feedAuthorUsername}`} passHref>
         <section className={styles.postSectionDiv}>
           <Image src={noImage} alt="image of the user" width="50" height="50" />
           <h3>
@@ -45,7 +45,7 @@ const PostDataSection = async ({
         {viewerEmail ? (
           <LikePostButton postId={feedId} likeCount={likeCount} />
         ) : (
-          <Link href={`/${locale}/auth/signin`}>
+          <Link passHref href={`/${locale}/auth/signin`}>
             <button>{t("loginToLikeText")}</button>
           </Link>
         )}

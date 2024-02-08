@@ -1,10 +1,10 @@
-import { getTranslations } from "next-intl/server";
-import Link from "next/link";
+import { getMessages, getTranslations } from "next-intl/server";
 import React, { ReactNode } from "react";
 import styles from "./settings.module.css";
-import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
-import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import type { Viewport } from "next";
+import SettingsNav from "@/_component/pageHeaders/settingsNav";
+import { NextIntlClientProvider } from "next-intl";
+import { pick } from "lodash";
 
 const layout = async ({
   children,
@@ -14,30 +14,16 @@ const layout = async ({
   params: { locale: string };
 }) => {
   const t = await getTranslations("SettingsPage");
+  const messages = await getMessages();
+
   return (
     <main className={styles.settingMain}>
       <div className={styles.settingContainer}>{children}</div>
       <div className={styles.navContainer}>
         <h2>{t("header")}</h2>
-        <nav className={styles.settingsNav}>
-          <ul>
-            <li>
-              <Link href={`/${params.locale}/settings`}>
-                <AdminPanelSettingsIcon />
-                <p>{t("account")}</p>
-              </Link>
-            </li>
-            <li>
-              <Link
-                data-test="nav-details"
-                href={`/${params.locale}/settings/personal_details`}
-              >
-                <SettingsApplicationsIcon />
-                <p>{t("personalDetails")}</p>
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <NextIntlClientProvider messages={pick(messages, "SettingsPage")}>
+          <SettingsNav locale={params.locale} />
+        </NextIntlClientProvider>
       </div>
     </main>
   );

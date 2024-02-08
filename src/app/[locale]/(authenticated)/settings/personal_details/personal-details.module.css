@@ -1,7 +1,7 @@
 .personalDetails section {
   flex: 1;
   order: 1; /* Set the order to 1 to move it to the right */
-  background-color: #fff;
+  background-color: var(--secondary-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 20px;
@@ -33,17 +33,12 @@
 }
 
 .personalDetails button {
-  background-color: #010204;
   color: #fff;
   padding: 12px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
-
-.personalDetails button:hover {
-  background-color: #ca4ca0;
 }
 
 /* @media screen and (max-width: 600px) {

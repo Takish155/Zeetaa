@@ -19,7 +19,7 @@ const page = async ({ params }: { params: { locale: string } }) => {
     <>
       <article>
         {Array.isArray(data) ? (
-          data?.map((notification) => {
+         data.length !== 0 ? data?.map((notification) => {
             if (notification.type === "friendrequest") {
               return (
                 <>
@@ -44,7 +44,7 @@ const page = async ({ params }: { params: { locale: string } }) => {
                 key={notification.id}
               />
             );
-          })
+          }) : <p>{t("noNotificationsYet")}</p>
         ) : (
           <p>{data?.message}</p>
         )}

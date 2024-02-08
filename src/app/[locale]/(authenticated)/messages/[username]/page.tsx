@@ -26,7 +26,7 @@ const page = async ({ params }: { params: { username: string } }) => {
   return (
     <main className={styles.chatMain}>
       <h2>
-        <Link href={`/${locale}/profile/${params.username}`}>
+        <Link passHref href={`/${locale}/profile/${params.username}`}>
           {params.username}
         </Link>
       </h2>

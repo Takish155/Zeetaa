@@ -9,19 +9,23 @@ const page = async ({ params }: { params: { locale: string } }) => {
   return (
     <article>
       {Array.isArray(data) ? (
-        data?.map((messages) => {
-          return (
-            <MessageSection
-              content={"content" in messages ? messages.content : ""}
-              date={messages.createdAt}
-              locale={params.locale}
-              messageBack={t("messageBack")}
-              notificationId={messages.id}
-              senderUsername={messages.senderUsername!}
-              key={messages.id}
-            />
-          );
-        })
+        data.length !== 0 ? (
+          data?.map((messages) => {
+            return (
+              <MessageSection
+                content={"content" in messages ? messages.content : ""}
+                date={messages.createdAt}
+                locale={params.locale}
+                messageBack={t("messageBack")}
+                notificationId={messages.id}
+                senderUsername={messages.senderUsername!}
+                key={messages.id}
+              />
+            );
+          })
+        ) : (
+          <p>{t("noNotificationsYet")}</p>
+        )
       ) : (
         <p>{data?.message}</p>
       )}

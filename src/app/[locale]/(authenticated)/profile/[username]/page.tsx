@@ -50,7 +50,10 @@ const page = async ({
             (profileData.relationship === "friend" ? (
               <>
                 <button>
-                  <Link href={`/${params.locale}/messages/${params.username}`}>
+                  <Link
+                    passHref
+                    href={`/${params.locale}/messages/${params.username}`}
+                  >
                     {t("message")}
                   </Link>
                 </button>
@@ -62,7 +65,10 @@ const page = async ({
             ) : profileData.relationship === "stranger" ? (
               <>
                 <button>
-                  <Link href={`/${params.locale}/messages/${params.username}`}>
+                  <Link
+                    passHref
+                    href={`/${params.locale}/messages/${params.username}`}
+                  >
                     {t("message")}
                   </Link>
                 </button>
@@ -74,7 +80,10 @@ const page = async ({
             ) : profileData.relationship === "alreadySentFriendRequest" ? (
               <>
                 <button>
-                  <Link href={`/${params.locale}/messages/${params.username}`}>
+                  <Link
+                    passHref
+                    href={`/${params.locale}/messages/${params.username}`}
+                  >
                     {t("message")}
                   </Link>
                 </button>
@@ -86,7 +95,10 @@ const page = async ({
             ) : profileData.relationship === "receivedFriendRequest" ? (
               <>
                 <button>
-                  <Link href={`/${params.locale}/messages/${params.username}`}>
+                  <Link
+                    passHref
+                    href={`/${params.locale}/messages/${params.username}`}
+                  >
                     {t("message")}
                   </Link>
                 </button>
@@ -97,7 +109,7 @@ const page = async ({
                 />
               </>
             ) : (
-              <Link href={`/${params.locale}/auth/signin`}>
+              <Link passHref href={`/${params.locale}/auth/signin`}>
                 <button>{t("noSessionButton")}</button>
               </Link>
             ))}

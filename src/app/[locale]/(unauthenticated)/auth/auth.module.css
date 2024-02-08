@@ -2,8 +2,9 @@
   width: 100vw;
 }
 
-.authMain section {
-  background-color: #fff;
+.authMain section,
+.formSection {
+  background-color: var(--secondary-color);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 30px;
@@ -16,11 +17,9 @@
 .authMain h2 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: black;
 }
 
 .authMain p {
-  color: #1c1e21;
   font-size: 16px;
   margin-bottom: 20px;
 }

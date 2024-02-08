@@ -28,7 +28,7 @@ const PostForm = ({
           )}
         </section>
         <section className={styles.postOptions}>
-          <select {...register("feedPrivacy")} value={"public"}>
+          <select {...register("feedPrivacy")}>
             <option value="public">{publicText}</option>
             <option value="private">{privateText}</option>
           </select>

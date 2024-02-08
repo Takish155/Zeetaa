@@ -86,7 +86,9 @@ const SignUpForm = () => {
         </button>
       </div>
       <button type="button" onClick={() => router.push("/")}>
-        <Link href="/">{t("signIn")}</Link>
+        <Link passHref href="/">
+          {t("signIn")}
+        </Link>
       </button>
     </form>
   );

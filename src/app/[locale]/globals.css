@@ -1,5 +1,9 @@
 :root {
   --dangerous-color: #ba3333;
+  --text-color: #fefcfb;
+  --primary-color: #222831;
+  --secondary-color: #393e46;
+  --accent-color: #00adb5;
 }
 
 * {
@@ -12,6 +16,8 @@
 html {
   font-family: var(--font-poppins), sans-serif;
   min-height: 90vh;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .main-header {
@@ -19,11 +25,11 @@ html {
   display: flex;
   position: fixed;
   top: 0;
-  background-color: rgb(255, 255, 255, 0.96);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   align-items: center;
   justify-content: space-around;
   padding: 1rem 0;
+  background-color: var(--secondary-color);
 }
 
 .main-header h1 {
@@ -61,7 +67,7 @@ html {
 .container {
   display: flex;
   gap: 5%;
-  padding-top: 3rem;
+  padding-top: 6rem;
 }
 
 .session-header {
@@ -69,7 +75,11 @@ html {
   position: sticky;
   top: 14%;
   height: 50vh;
-  min-height: 350px;
+}
+
+.session-header nav {
+  background-color: var(--secondary-color);
+  padding: 1rem 0;
 }
 
 .session-header nav ul {
@@ -89,7 +99,7 @@ html {
   cursor: pointer;
   font-size: 1.25rem;
   font-weight: 600;
-  padding: 1.15rem;
+  padding: 1rem;
 }
 
 .session-header nav ul li a:link {
@@ -97,7 +107,7 @@ html {
 }
 
 .session-header nav ul li:hover {
-  background-color: #f2f2f2;
+  background-color: gray;
 }
 
 main {
@@ -120,7 +130,7 @@ a {
 label {
   display: block;
   margin-bottom: 10px; /* Increased margin-bottom for better spacing */
-  color: #1c1e21;
+  color: var(--text-color);
   font-weight: bold;
 }
 
@@ -128,8 +138,10 @@ input {
   width: 100%;
   max-width: 400px;
   padding: 15px; /* Increased padding for better spacing */
-  border: 2px solid #ddd; /* Increased border size for better visibility */
+  border: 2px solid var(--primary-color); /* Increased border size for better visibility */
   border-radius: 8px; /* Increased border-radius for rounded corners */
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .field-div {
@@ -163,7 +175,7 @@ button {
   padding: 10px 50px; /* Increased padding for a larger button */
   border: 0;
   border-radius: 12px; /* Increased border-radius for rounded corners */
-  background-color: #000000;
+  background-color: var(--accent-color);
   color: #ffffff;
   font-weight: bold;
   font-size: 20px; /* Increased font size */
@@ -171,7 +183,6 @@ button {
 }
 
 button:hover {
-  box-shadow: 0 0 25px #6fc5ff50;
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -208,10 +219,6 @@ button:active {
   nav a p {
     display: none;
   }
-
-  .session-header nav ul li:last-child {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 600px) {
@@ -225,12 +232,10 @@ button:active {
   }
 
   .session-header {
-    padding: 0.5rem 0;
     width: 100vw;
     position: fixed;
     display: flex;
     top: 92%;
-    background-color: white;
   }
 
   .session-header h1 {

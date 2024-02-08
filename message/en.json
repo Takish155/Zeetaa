@@ -106,7 +106,10 @@
     "friendRequestRejectedSuccess": "'s friend request has been rejected!",
     "allNotifications": "All Notifications",
     "friendRequestNotifications": "Friend Requests",
-    "messageNotifications": "Messages"
+    "messageNotifications": "Messages",
+    "noNotificationsYet": "No notifications yet.",
+    "noMesssagesYet": "No messages yet.",
+    "noFriendRequestsYet": "No friend requests yet."
   },
   "FriendsPage": {
     "header": "Friends",
@@ -117,7 +120,8 @@
     "visitProfile": "Visit Profile",
     "message": "Message",
     "removeFriend": "Remove Friend",
-    "friendRemovedSuccess": "Friend removed!"
+    "friendRemovedSuccess": "Friend removed!",
+    "noFriendsYet": "No friends yet, Why not send a friend request to someone?"
   },
   "MessagesPage": {
     "header": "Messages",
