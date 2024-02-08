@@ -6,6 +6,7 @@
   position: sticky;
   align-content: center;
   padding: 2rem 0;
+  flex-wrap: wrap;
 }
 
 .footerSection {
@@ -38,4 +39,14 @@
   padding: 0.5rem 3rem;
   font-size: 1.35rem;
   margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .footer p {
+    margin-left: 1rem;
+  }
+
+  .footerSection {
+    padding-bottom: 7rem;
+  }
 }

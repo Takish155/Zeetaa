@@ -38,7 +38,7 @@ const PostForm = ({
               {submitText}
             </button>
           ) : (
-            <CircularProgress />
+            <CircularProgress sx={{ margin: "0 2rem" }} />
           )}
         </section>
       </form>

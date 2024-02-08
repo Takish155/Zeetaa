@@ -44,7 +44,7 @@ const FriendRequestActionButtons = ({
               {acceptText}
             </button>
           ) : (
-            <CircularProgress />
+            <CircularProgress sx={{ margin: "0 2rem" }} />
           )}
           {!acceptFriendRequestMutation.isPending &&
           !rejectFriendRequestMutation.isPending ? (
@@ -57,7 +57,7 @@ const FriendRequestActionButtons = ({
               {rejectText}
             </button>
           ) : (
-            <CircularProgress />
+            <CircularProgress sx={{ margin: "0 2rem" }} />
           )}
           <button>
             <Link passHref href={`/${locale}/profile/${username}`}>

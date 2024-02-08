@@ -240,7 +240,8 @@ button:active {
     width: 100vw;
     position: fixed;
     display: flex;
-    top: 92%;
+    top: 87%;
+    z-index: 100;
   }
 
   .session-header h1 {
@@ -256,11 +257,13 @@ button:active {
     width: 100%;
     display: flex;
     justify-content: space-around;
+    margin-bottom: 0;
   }
 
   .session-header nav ul li a:link {
     padding: 0.5rem;
     justify-content: center;
+    margin-bottom: 0;
   }
 
   .session-header nav ul li {

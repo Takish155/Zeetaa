@@ -16,16 +16,8 @@ const ChatHistory = ({ username }: { username: string }) => {
 
   if (isLoading)
     return (
-      <section
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "65vh",
-        }}
-      >
-        <CircularProgress />
+      <section className={styles.loadingSection}>
+        <CircularProgress sx={{ margin: "0 2rem" }} />
       </section>
     );
   return (

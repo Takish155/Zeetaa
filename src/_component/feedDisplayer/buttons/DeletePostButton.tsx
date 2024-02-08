@@ -25,7 +25,7 @@ const DeletePostButton = ({ postId }: { postId: string }) => {
           <DeleteIcon />
         </button>
       ) : (
-        <CircularProgress />
+        <CircularProgress sx={{ margin: "0 2rem" }} />
       )}
     </>
   );

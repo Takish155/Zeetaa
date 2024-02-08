@@ -86,7 +86,7 @@ const SignUpForm = () => {
             {t("register")}
           </button>
         ) : (
-          <CircularProgress />
+          <CircularProgress sx={{ margin: "0 2rem" }} />
         )}
       </div>
       <Link passHref href="/">

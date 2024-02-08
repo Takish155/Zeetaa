@@ -21,7 +21,7 @@ const Header = async () => {
         </Link>
       </h1>
       {session && (
-        <Suspense fallback={<CircularProgress />}>
+        <Suspense fallback={<CircularProgress sx={{ margin: "0 2rem" }} />}>
           <SearchInput placeholder={t("search")} locale={locale} />
         </Suspense>
       )}

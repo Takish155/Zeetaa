@@ -20,7 +20,9 @@ const HamburgerHeader = async () => {
         <nav>
           <ul>
             <NextIntlClientProvider messages={pick(messages, "Header")}>
-              <Suspense fallback={<CircularProgress />}>
+              <Suspense
+                fallback={<CircularProgress sx={{ margin: "0 2rem" }} />}
+              >
                 <SessionHeader
                   locale={locale}
                   username={"username" in userData ? userData.username! : ""}

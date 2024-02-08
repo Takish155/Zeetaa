@@ -54,7 +54,7 @@ const SignInForm = ({ locale }: { locale: string }) => {
             {t("signIn")}
           </button>
         ) : (
-          <CircularProgress />
+          <CircularProgress sx={{ margin: "0 5rem" }} />
         )}
         <a href={`/${locale}/auth/signup`}>
           <button type="button">{t("signUp")}</button>

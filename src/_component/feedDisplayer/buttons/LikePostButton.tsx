@@ -30,7 +30,7 @@ const LikePostButton = ({
           <ThumbUpIcon /> {likeCount}
         </button>
       ) : (
-        <CircularProgress />
+        <CircularProgress sx={{ margin: "0 2rem" }} />
       )}
     </>
   );
